@@ -76,7 +76,18 @@ a.item_nav:hover {
     height: 100vh;
     width: 50%;
     object-fit: cover;
-    opacity: 0.2;
+    z-index: -1;
+    padding-top: 55px;
+}
+
+.home-img-gr {
+    background: linear-gradient(to right, rgb(26, 26, 26) 1%, transparent);
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 50%;
+    object-fit: cover;
     z-index: -1;
     padding-top: 55px;
 }
