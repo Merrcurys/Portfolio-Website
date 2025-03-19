@@ -4,63 +4,55 @@ AOS.init({
     once: true
 });
 
-// Настройка particles.js
-particlesJS('particles-js', {
-    particles: {
-        number: {
-            value: 80,
-            density: {
+// Инициализация particles.js только на десктопах
+if (window.innerWidth > 768) {
+    particlesJS("particles-js", {
+        particles: {
+            number: { value: 80, density: { enable: true, value_area: 800 } },
+            color: { value: "#6c63ff" },
+            shape: { type: "circle" },
+            opacity: {
+                value: 0.5,
+                random: false,
+                anim: { enable: false }
+            },
+            size: {
+                value: 3,
+                random: true,
+                anim: { enable: false }
+            },
+            line_linked: {
                 enable: true,
-                value_area: 800
+                distance: 150,
+                color: "#6c63ff",
+                opacity: 0.4,
+                width: 1
+            },
+            move: {
+                enable: true,
+                speed: 2,
+                direction: "none",
+                random: false,
+                straight: false,
+                out_mode: "out",
+                bounce: false
             }
         },
-        color: {
-            value: '#6C63FF'
-        },
-        shape: {
-            type: 'circle'
-        },
-        opacity: {
-            value: 0.5,
-            random: false
-        },
-        size: {
-            value: 3,
-            random: true
-        },
-        line_linked: {
-            enable: true,
-            distance: 150,
-            color: '#00D4FF',
-            opacity: 0.4,
-            width: 1
-        },
-        move: {
-            enable: true,
-            speed: 6,
-            direction: 'none',
-            random: false,
-            straight: false,
-            out_mode: 'out',
-            bounce: false
-        }
-    },
-    interactivity: {
-        detect_on: 'canvas',
-        events: {
-            onhover: {
-                enable: true,
-                mode: 'repulse'
+        interactivity: {
+            detect_on: "canvas",
+            events: {
+                onhover: { enable: true, mode: "repulse" },
+                onclick: { enable: true, mode: "push" },
+                resize: true
             },
-            onclick: {
-                enable: true,
-                mode: 'push'
-            },
-            resize: true
-        }
-    },
-    retina_detect: true
-});
+            modes: {
+                repulse: { distance: 100, duration: 0.4 },
+                push: { particles_nb: 4 }
+            }
+        },
+        retina_detect: true
+    });
+}
 
 // Заменяем старую функцию typeText на более плавную анимацию
 const initTextAnimation = () => {

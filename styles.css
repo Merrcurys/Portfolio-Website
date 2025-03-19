@@ -401,6 +401,10 @@ body {
         padding: 0.5rem 1rem;
         font-size: 0.9rem;
     }
+
+    #particles-js {
+        display: none;
+    }
 }
 
 /* Дополнительные медиа-запросы для очень маленьких экранов */
