@@ -29,7 +29,6 @@ body {
     pointer-events: none;
 }
 
-/* Обновляем z-index для всех основных секций */
 .hero,
 .about-section,
 .skills-section,
@@ -39,7 +38,6 @@ body {
     z-index: 1;
 }
 
-/* Обновляем z-index для контента внутри секций */
 .about-content,
 .skills-container,
 .projects-grid,
@@ -56,6 +54,10 @@ body {
     align-items: center;
     position: relative;
     z-index: 2;
+}
+
+.glitch-wrapper {
+    text-align: center;
 }
 
 /* Эффект глитча для заголовка */
@@ -87,7 +89,7 @@ body {
     left: 0;
 }
 
-/* Добавляем новые стили для анимированного текста */
+/* Стили для анимированного текста */
 .typing-text {
     font-size: 2.5rem;
     color: var(--light);
@@ -98,7 +100,7 @@ body {
     animation: glow 2s ease-in-out infinite alternate;
 }
 
-/* Обновляем стили для секции "Обо мне" */
+/* Стили для секции "Обо мне" */
 .about-section {
     position: relative;
     padding: 6rem 2rem;
@@ -126,7 +128,6 @@ body {
     position: relative;
 }
 
-/* Удаляем старые стили для заголовков About и Skills */
 .about-section h2::before,
 .skills-section h2::before {
     content: none;
@@ -234,6 +235,9 @@ body {
     border: 2px solid transparent;
     background: linear-gradient(45deg, var(--primary), var(--secondary)) border-box;
     -webkit-mask:
+        linear-gradient(#fff 0 0) padding-box, 
+        linear-gradient(#fff 0 0);
+    mask:
         linear-gradient(#fff 0 0) padding-box, 
         linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
@@ -441,7 +445,7 @@ body {
     }
 }
 
-/* Обновляем стили для градиентного текста */
+/* Стили для градиентного текста */
 .gradient-text {
     font-size: 1.8rem;
     font-weight: bold;
@@ -523,7 +527,7 @@ body {
     margin: 0;
 }
 
-/* Обновляем медиа-запросы для мобильной версии */
+/* Медиа-запросы для мобильной версии */
 @media (max-width: 768px) {
     .skills-container {
         grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
@@ -553,8 +557,7 @@ body {
 }
 
 .projects-section h2::after {
-    /* Удаляем этот блок полностью */
-    content: none; /* или можно просто удалить весь блок .projects-section h2::after */
+    content: none;
 }
 
 .projects-grid {
@@ -657,7 +660,6 @@ body {
     transform: translateY(-2px);
 }
 
-/* Добавляем декоративный элемент */
 .project-card::before {
     content: '';
     position: absolute;
@@ -679,7 +681,7 @@ body {
     transform: translateX(100%);
 }
 
-/* Добавляем иконку для проектов */
+/* Иконки для проектов */
 .project-icon {
     position: absolute;
     top: 1rem;
@@ -712,7 +714,7 @@ body {
     color: var(--primary);
 }
 
-/* Обновляем стили для секции с именем */
+/* Стили для секции с именем */
 .hero-content {
     text-align: center;
     margin-top: 0;
@@ -762,7 +764,7 @@ body {
     height: 100%;
 }
 
-/* Добавляем градиентный текст для имени */
+/* Градиентный текст для имени */
 .hero-name span {
     background: linear-gradient(
         45deg,
@@ -790,7 +792,6 @@ body {
     }
 }
 
-/* Удаляем старые стили для .mouse и добавляем новые для индикатора прокрутки */
 .scroll-indicator {
     position: absolute;
     bottom: 2rem;
@@ -857,17 +858,17 @@ body {
     }
 }
 
-/* Добавляем эффект градиента для шевронов при наведении */
+/* Эффект градиента для шевронов при наведении */
 .scroll-indicator:hover .chevron:before,
 .scroll-indicator:hover .chevron:after {
     background: linear-gradient(90deg, var(--primary), var(--secondary));
 }
 
-/* Обновляем базовые стили для анимируемых элементов */
+/* Стили для анимируемых элементов */
 .animate-on-scroll {
     opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateY(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
 .animate-on-scroll.animate {
@@ -897,7 +898,7 @@ body {
     width: 100%;
 }
 
-/* Добавляем эффект свечения для текста */
+/* Эффект свечения для текста */
 .glow-text {
     text-shadow: 0 0 10px rgba(108, 99, 255, 0.5);
     transition: text-shadow 0.3s ease;
@@ -907,7 +908,7 @@ body {
     text-shadow: 0 0 20px rgba(108, 99, 255, 0.8);
 }
 
-/* Обновляем стили для карточек с контентом */
+/* Стили для карточек с контентом */
 .content-card {
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
@@ -923,7 +924,7 @@ body {
     transform: translateY(-5px);
 }
 
-/* Обновляем базовые стили для социальных ссылок */
+/* Стили для социальных ссылок */
 .social-links {
     display: flex;
     gap: 1rem;
@@ -1185,7 +1186,6 @@ body {
     box-shadow: 0 0 30px var(--primary);
 }
 
-/* Добавляем декоративные элементы */
 .timeline-content::after {
     content: '';
     position: absolute;
@@ -1198,7 +1198,7 @@ body {
     pointer-events: none;
 }
 
-/* Обновляем стили для мобильной версии */
+/* Стили для мобильной версии */
 @media (max-width: 768px) {
     .timeline-content {
         margin-left: 20px;
@@ -1346,6 +1346,7 @@ body {
     font-size: 2rem;
     background: linear-gradient(135deg, var(--primary), var(--secondary));
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     filter: drop-shadow(0 2px 4px rgba(108, 99, 255, 0.2));
 }
@@ -1440,8 +1441,8 @@ body {
     }
 
     .skills-category.languages .skills-grid {
-        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-        gap: 0.8rem;
+        grid-template-columns: 1fr;
+        gap: 1rem;
     }
 
     .skills-category.languages .skill-card {
@@ -1458,8 +1459,8 @@ body {
     }
 
     .skills-category:not(.languages) .skills-grid {
-        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-        gap: 0.8rem;
+        grid-template-columns: 1fr;
+        gap: 1rem;
     }
 
     .skills-category:not(.languages) .skill-card {
@@ -1486,7 +1487,7 @@ body {
         border-radius: 12px;
     }
 
-    /* Обновляем стили для секции "Обо мне" */
+    /* Стили для секции "Обо мне" */
     .about-section {
         padding: 3rem 1rem;
     }
@@ -1505,7 +1506,7 @@ body {
         padding-left: 1rem;
     }
 
-    /* Обновляем стили для секции образования */
+    /* Стили для секции образования */
     .education-section {
         padding: 3rem 1rem;
     }
@@ -1525,7 +1526,7 @@ body {
         margin-bottom: 0.8rem;
     }
 
-    /* Обновляем стили для проектов */
+    /* Стили для проектов */
     .projects-section {
         padding: 3rem 1rem;
     }
@@ -1557,7 +1558,7 @@ body {
         padding: 0.3rem 0.8rem;
     }
 
-    /* Обновляем стили для главного экрана */
+    /* Стили для главного экрана */
     .hero {
         padding: 2rem 1rem;
     }
@@ -1583,7 +1584,7 @@ body {
     }
 }
 
-/* Добавляем стили для очень маленьких экранов */
+/* Стили для очень маленьких экранов */
 @media (max-width: 380px) {
     .skills-category.languages .skills-grid,
     .skills-category:not(.languages) .skills-grid {
@@ -1715,12 +1716,11 @@ body {
     color: var(--primary);
 }
 
-/* Удаляем неиспользуемые стили */
 .skill-level-tag {
     display: none;
 }
 
-/* Обновляем стили для мобильных устройств */
+/* Стили для мобильных устройств */
 @media (max-width: 768px) {
     .skill-tags {
         gap: 0.4rem;
@@ -1732,7 +1732,7 @@ body {
     }
 }
 
-/* Добавляем стили для выделения текста */
+/* Стили для выделения текста */
 ::selection {
     background: rgba(108, 99, 255, 0.3);
     color: var(--light);
@@ -1821,7 +1821,7 @@ body {
     width: 100%;
 }
 
-/* Удаляем старые стили для не-языковых категорий */
+/* Стили для не-языковых категорий */
 .skills-category:not(.languages) h3 {
     color: var(--primary);
     font-size: 1.4rem;
@@ -1891,6 +1891,7 @@ body {
     font-size: 2rem;
     background: linear-gradient(135deg, var(--primary), var(--secondary));
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     filter: drop-shadow(0 2px 4px rgba(108, 99, 255, 0.2));
 }
@@ -1902,8 +1903,8 @@ body {
     }
 
     .skills-category .skills-grid {
-        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-        gap: 0.8rem;
+        grid-template-columns: 1fr;
+        gap: 1rem;
     }
 
     .skills-category .skill-card {

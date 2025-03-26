@@ -1,7 +1,9 @@
 // Инициализация AOS
 AOS.init({
-    duration: 1000,
-    once: true
+    duration: 600,
+    once: true,
+    offset: 50,
+    easing: 'ease-out'
 });
 
 // Инициализация particles.js только на десктопах
@@ -54,16 +56,19 @@ if (window.innerWidth > 768) {
     });
 }
 
-// Заменяем старую функцию typeText на более плавную анимацию
 const initTextAnimation = () => {
     const phrases = [
         "SQL Developer",
-        "Python Developer",
         "Data Analyst",
+        "Python Developer",
     ];
 
     const textElement = document.querySelector('.typing-text');
     let currentPhraseIndex = 0;
+
+    // Сразу устанавливаем первую фразу без задержки
+    textElement.textContent = phrases[2];
+    textElement.style.opacity = '1';
 
     const updateText = () => {
         textElement.style.opacity = '0';
@@ -74,8 +79,9 @@ const initTextAnimation = () => {
         }, 500);
     };
 
-    updateText();
-    setInterval(updateText, 3000);
+    setTimeout(() => {
+        setInterval(updateText, 2800);
+    });
 };
 
 // Анимация прогресс-баров навыков
@@ -95,7 +101,6 @@ const animateSkills = () => {
     });
 };
 
-// Обновляем инициализацию
 document.addEventListener('DOMContentLoaded', () => {
     initTextAnimation();
     animateSkills();
@@ -111,14 +116,13 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Добавляем новую функцию для отслеживания направления прокрутки
+// Функцию для отслеживания направления прокрутки
 let lastScrollTop = 0;
 
 window.addEventListener('scroll', () => {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
     const scrollDirection = scrollTop > lastScrollTop ? 'down' : 'up';
 
-    // Находим все элементы, которые нужно анимировать
     const elements = document.querySelectorAll('.animate-on-scroll');
 
     elements.forEach(element => {
@@ -130,7 +134,6 @@ window.addEventListener('scroll', () => {
         if (elementTop < windowHeight - 100 && elementBottom > 0) {
             element.classList.add('animate');
 
-            // Добавляем специальные классы в зависимости от направления прокрутки
             if (scrollDirection === 'up') {
                 element.classList.add('scroll-up');
             } else {
@@ -164,9 +167,4 @@ document.addEventListener('keydown', function (event) {
     if (event.key === 'Escape') {
         closeCertificate();
     }
-});
-
-// Предотвращение закрытия при клике на изображение
-document.querySelector('.certificate-modal img').addEventListener('click', function (event) {
-    event.stopPropagation();
 }); 

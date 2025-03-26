@@ -1,23 +1,42 @@
 <!DOCTYPE html>
 <html lang="ru">
   <head>
+    <!-- Основные мета-теги для SEO и отображения -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Open Graph мета-теги для превью в Telegram -->
-    <meta property="og:title" content="Портфолио Merrcurys" />
+    <meta
+      name="description"
+      content="Портфолио Александра Себежко (Merrcurys) - разработчика программного обеспечения. Специализация: Python, SQL, Data Science."
+    />
+    <meta
+      name="keywords"
+      content="Merrcurys, Александр Себежко, Python разработчик, SQL разработчик, Data Science, Data Analysis, портфолио программиста, Python, SQL, разработчик ПО, студент РЭУ, студент МПТ"
+    />
+    <link rel="canonical" href="https://merrcurys.ru" />
+
+    <!-- Open Graph мета-теги для красивого отображения при шеринге в соцсетях -->
+    <meta property="og:title" content="Merrcurys | Портфолио разработчика" />
     <meta
       property="og:description"
-      content="Привет я Александр, мой псевдоним Merrcurys и это мой сайт-портфолио."
+      content="Портфолио Александра Себежко (Merrcurys) - разработчика программного обеспечения. Специализация: Python, SQL, Data Science."
     />
-    <meta property="og:image" content="img/telegram-view.jpg" />
+    <meta
+      property="og:image"
+      content="https://merrcurys.ru/img/telegram-view.jpg"
+    />
+    <!-- Настройки для отображения превью в Telegram -->
+    <meta name="twitter:card" content="summary_large_image" />
     <meta property="og:url" content="https://merrcurys.ru" />
     <meta property="og:type" content="website" />
     <meta property="og:logo" content="https://merrcurys.ru/img/favicon.png" />
-    <title>Who is Merrcurys?</title>
+
+    <!-- Заголовок и иконки сайта -->
+    <title>Merrcurys | Портфолио разработчика</title>
     <link rel="icon" type="image/svg+xml" href="img/favicon.svg" />
     <link rel="icon" type="image/png" href="img/favicon.png" />
     <link rel="stylesheet" href="styles.css" />
-    <!-- Yandex.Metrika counter -->
+
+    <!-- Скрипт Яндекс.Метрики для отслеживания посещаемости -->
     <script type="text/javascript">
       ;(function (m, e, t, r, i, k, a) {
         m[i] =
@@ -50,15 +69,17 @@
         accurateTrackBounce: true,
       })
     </script>
-    <noscript
-      ><div>
+    <noscript>
+      <div>
         <img
           src="https://mc.yandex.ru/watch/100462954"
           style="position: absolute; left: -9999px"
           alt=""
-        /></div
-    ></noscript>
-    <!-- /Yandex.Metrika counter -->
+        />
+      </div>
+    </noscript>
+
+    <!-- Подключение внешних библиотек и стилей -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link
       rel="stylesheet"
@@ -72,13 +93,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
   </head>
   <body>
+    <!-- Анимированный фон с частицами -->
     <div id="particles-js"></div>
+
+    <!-- Главная секция с анимированным заголовком -->
     <div class="hero">
       <div class="glitch-wrapper">
         <h1 class="glitch" data-text="Who Is Merrcurys?">Who Is Merrcurys?</h1>
       </div>
+
       <div class="hero-content">
         <h2 class="typing-text"></h2>
+        <!-- Ссылки на социальные сети -->
         <div class="social-links">
           <a
             href="https://github.com/Merrcurys"
@@ -106,6 +132,7 @@
             Telegram
           </a>
         </div>
+        <!-- Индикатор прокрутки -->
         <div class="scroll-indicator">
           <div class="chevrons">
             <div class="chevron"></div>
@@ -116,10 +143,11 @@
       </div>
     </div>
 
+    <!-- Секция навыков -->
     <section class="skills-section" id="skills">
       <h2 class="section-title animate-on-scroll">Навыки</h2>
       <div class="skills-container">
-        <!-- Языки программирования -->
+        <!-- Карточки с языками программирования -->
         <div class="skills-category languages animate-on-scroll">
           <h3>Языки программирования</h3>
           <div class="skills-grid">
@@ -170,7 +198,7 @@
           </div>
         </div>
 
-        <!-- Базы данных -->
+        <!-- Карточки с базами данных -->
         <div class="skills-category animate-on-scroll" data-aos-delay="100">
           <h3>Базы данных</h3>
           <div class="skills-grid">
@@ -192,7 +220,7 @@
           </div>
         </div>
 
-        <!-- Веб-разработка -->
+        <!-- Карточки с веб-технологиями -->
         <div class="skills-category animate-on-scroll" data-aos-delay="200">
           <h3>Веб Дизайн</h3>
           <div class="skills-grid">
@@ -217,7 +245,7 @@
           </div>
         </div>
 
-        <!-- Технологии -->
+        <!-- Карточки с дополнительными технологиями -->
         <div class="skills-category animate-on-scroll" data-aos-delay="300">
           <h3>Технологии</h3>
           <div class="skills-grid">
@@ -241,6 +269,7 @@
       </div>
     </section>
 
+    <!-- Секция "Обо мне" -->
     <section class="about-section">
       <h2 class="section-title animate-on-scroll">Обо мне</h2>
       <div class="content-card animate-on-scroll">
@@ -253,13 +282,18 @@
               href="https://lyceum.yandex.ru/python"
               target="_blank"
               class="institution-link"
+              rel="nofollow"
               >Яндекс Лицее</a
             >, где я освоил Python и основы алгоритмизации.
           </p>
           <br />
           <p>
             Сейчас я студент 3 курса
-            <a href="https://mpt.ru" target="_blank" class="institution-link"
+            <a
+              href="https://mpt.ru"
+              target="_blank"
+              class="institution-link"
+              rel="nofollow"
               >Московского приборостроительного техникума РЭУ им. Г. В.
               Плеханова</a
             >, где изучаю программирование и разработку программного
@@ -275,6 +309,7 @@
               href="https://www.rea.ru"
               target="_blank"
               class="institution-link"
+              rel="nofollow"
               >РЭУ им Г.В. Плеханова</a
             >. Где изучаю языки на академическом уровне. А также изучаю
             экономику и прочие предметы нужные для IT.
@@ -283,6 +318,7 @@
       </div>
     </section>
 
+    <!-- Секция образования с временной шкалой -->
     <section class="education-section">
       <h2 class="section-title animate-on-scroll">Образование</h2>
       <div class="timeline">
@@ -313,6 +349,7 @@
       </div>
     </section>
 
+    <!-- Секция проектов -->
     <section class="projects-section">
       <h2 class="section-title animate-on-scroll">Проекты</h2>
       <div class="projects-grid">
@@ -364,7 +401,9 @@
       </div>
     </section>
 
+    <!-- Подключение скриптов -->
     <script src="script.js"></script>
+    <!-- Модальное окно для отображения сертификатов -->
     <div class="certificate-modal" onclick="closeCertificate()">
       <div class="close-button">&times;</div>
       <img src="" alt="Сертификат Python" />
