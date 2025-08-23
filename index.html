@@ -1,412 +1,530 @@
 <!DOCTYPE html>
 <html lang="ru">
   <head>
-    <!-- Основные мета-теги для SEO и отображения -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Портфолио Александра Себежко (Merrcurys) - разработчика программного обеспечения. Специализация: Python, SQL, Data Science."
-    />
-    <meta
-      name="keywords"
-      content="Merrcurys, Александр Себежко, Python разработчик, SQL разработчик, Data Science, Data Analysis, портфолио программиста, Python, SQL, разработчик ПО, студент РЭУ, студент МПТ"
-    />
-    <link rel="canonical" href="https://merrcurys.ru" />
-
-    <!-- Open Graph мета-теги для красивого отображения при шеринге в соцсетях -->
-    <meta property="og:title" content="Merrcurys | Портфолио разработчика" />
-    <meta
-      property="og:description"
-      content="Портфолио Александра Себежко (Merrcurys) - разработчика программного обеспечения. Специализация: Python, SQL, Data Science."
-    />
-    <meta
-      property="og:image"
-      content="https://merrcurys.ru/img/telegram-view.jpg"
-    />
-    <!-- Настройки для отображения превью в Telegram -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta property="og:url" content="https://merrcurys.ru" />
-    <meta property="og:type" content="website" />
-    <meta property="og:logo" content="https://merrcurys.ru/img/favicon.png" />
-
-    <!-- Заголовок и иконки сайта -->
     <title>Merrcurys | Портфолио разработчика</title>
-    <link rel="icon" type="image/svg+xml" href="img/favicon.svg" />
-    <link rel="icon" type="image/png" href="img/favicon.png" />
     <link rel="stylesheet" href="styles.css" />
-
-    <!-- Скрипт Яндекс.Метрики для отслеживания посещаемости -->
-    <script type="text/javascript">
-      ;(function (m, e, t, r, i, k, a) {
-        m[i] =
-          m[i] ||
-          function () {
-            ;(m[i].a = m[i].a || []).push(arguments)
-          }
-        m[i].l = 1 * new Date()
-        for (var j = 0; j < document.scripts.length; j++) {
-          if (document.scripts[j].src === r) {
-            return
-          }
-        }
-        ;(k = e.createElement(t)),
-          (a = e.getElementsByTagName(t)[0]),
-          (k.async = 1),
-          (k.src = r),
-          a.parentNode.insertBefore(k, a)
-      })(
-        window,
-        document,
-        "script",
-        "https://mc.yandex.ru/metrika/tag.js",
-        "ym"
-      )
-
-      ym(100462954, "init", {
-        clickmap: true,
-        trackLinks: true,
-        accurateTrackBounce: true,
-      })
-    </script>
-    <noscript>
-      <div>
-        <img
-          src="https://mc.yandex.ru/watch/100462954"
-          style="position: absolute; left: -9999px"
-          alt=""
-        />
-      </div>
-    </noscript>
-
-    <!-- Подключение внешних библиотек и стилей -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
-    />
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
   </head>
   <body>
-    <!-- Анимированный фон с частицами -->
-    <div id="particles-js"></div>
-
-    <!-- Главная секция с анимированным заголовком -->
-    <div class="hero">
-      <div class="glitch-wrapper">
-        <h1 class="glitch" data-text="Who Is Merrcurys?">Who Is Merrcurys?</h1>
-      </div>
-
-      <div class="hero-content">
-        <h2 class="typing-text"></h2>
-        <!-- Ссылки на социальные сети -->
-        <div class="social-links">
-          <a
-            href="https://github.com/Merrcurys"
-            class="github-link"
-            target="_blank"
-          >
-            <span class="github-icon">
-              <svg height="24" width="24" viewBox="0 0 16 16">
-                <path
-                  fill="currentColor"
-                  d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
-                ></path>
-              </svg>
-            </span>
-            GitHub
-          </a>
-          <a
-            href="https://t.me/Merrcurys"
-            class="telegram-link"
-            target="_blank"
-          >
-            <span class="telegram-icon">
-              <i class="fab fa-telegram"></i>
-            </span>
-            Telegram
-          </a>
-        </div>
-        <!-- Индикатор прокрутки -->
-        <div class="scroll-indicator">
-          <div class="chevrons">
-            <div class="chevron"></div>
-            <div class="chevron"></div>
-            <div class="chevron"></div>
-          </div>
-        </div>
+    <!-- Animated Background -->
+    <div class="background-animation">
+      <div class="floating-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+        <div class="shape shape-4"></div>
+        <div class="shape shape-5"></div>
       </div>
     </div>
 
-    <!-- Секция навыков -->
-    <section class="skills-section" id="skills">
-      <h2 class="section-title animate-on-scroll">Навыки</h2>
-      <div class="skills-container">
-        <!-- Карточки с языками программирования -->
-        <div class="skills-category languages animate-on-scroll">
-          <h3>Языки программирования</h3>
-          <div class="skills-grid">
-            <div
-              class="skill-card"
-              onclick="showCertificate('img/python-certificat.jpg')"
-            >
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-links">
+          <a href="#home" class="nav-link">Главная</a>
+          <a href="#about" class="nav-link">Обо мне</a>
+          <a href="#technologies" class="nav-link">Технологии</a>
+          <a href="#education" class="nav-link">Образование</a>
+          <a href="#experience" class="nav-link">Опыт работы</a>
+          <a href="#projects" class="nav-link">Проекты</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="main-container">
+      <!-- Hero Section -->
+      <section id="home" class="hero">
+        <div class="hero-content">
+          <div class="hero-center">
+            <h1 class="main-title">
+              <span class="title-highlight">Who Is Merrcurys</span>
+            </h1>
+
+            <div class="role-container">
+              <span class="role-text" id="roleText">Python Developer</span>
+            </div>
+
+            <div class="hero-buttons">
+              <a
+                href="https://t.me/merrcurys"
+                target="_blank"
+                class="btn btn-primary"
+              >
+                <i class="fab fa-telegram"></i>
+                Telegram
+              </a>
+              <a
+                href="https://github.com/merrcurys"
+                target="_blank"
+                class="btn btn-secondary"
+              >
+                <i class="fab fa-github"></i>
+                GitHub
+              </a>
+            </div>
+          </div>
+
+          <div class="hero-description-section">
+            <p class="hero-description">
+              Превращаю кофе в код и идеи в работающие приложения. Создаю
+              элегантные решения на разных языках, которые работают.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="about">
+        <div class="about-content">
+          <h2 class="section-title">
+            <span class="title-highlight">Обо мне</span>
+          </h2>
+
+          <div class="about-grid">
+            <div class="about-info">
+              <div class="about-intro">
+                <p class="about-text">
+                  Меня зовут <strong>Александр</strong>, мне
+                  <span id="ageCounter" class="age-normal">19</span> лет. Мой
+                  путь в IT начался с изучения основ программирования в
+                  <strong>Яндекс Лицее</strong>, где я освоил Python и основы
+                  алгоритмизации.
+                </p>
+              </div>
+
+              <div class="education-text">
+                <p class="about-text">
+                  Сейчас я студен 4 курса
+                  <strong
+                    >Московского приборостроительного техникума РЭУ им. Г. В.
+                    Плеханова</strong
+                  >, где изучаю программирование и разработку программного
+                  обеспечения. Углубляю знания в C#, C++, Java и других языках
+                  программирования. Особое внимание уделяю изучению баз данных и
+                  Data Science с Data Analysis.
+                </p>
+
+                <p class="about-text">
+                  Также я паралельно учусь на 3 курсе в
+                  <strong>РЭУ им Г.В. Плеханова</strong>
+                  Где изучаю языки на академическом уровне. А также изучаю
+                  экономику и прочие предметы нужные для IT.
+                </p>
+              </div>
+            </div>
+
+            <div class="about-stats">
+              <div class="stat-card">
+                <div class="stat-icon">
+                  <i class="fas fa-birthday-cake"></i>
+                </div>
+                <div class="stat-content">
+                  <div class="stat-number" id="ageDisplay">18</div>
+                  <div class="stat-label">лет</div>
+                </div>
+              </div>
+
+              <div class="stat-card">
+                <div class="stat-icon">
+                  <i class="fas fa-code"></i>
+                </div>
+                <div class="stat-content">
+                  <div class="stat-number" id="codingYears">4</div>
+                  <div class="stat-label">года в IT</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Technologies Section -->
+      <section id="technologies" class="technologies">
+        <div class="technologies-content">
+          <h2 class="section-title">
+            <span class="title-highlight">Технологии</span>
+          </h2>
+          <p class="section-description">
+            Стек технологий, с которыми я работаю
+          </p>
+
+          <div class="tech-grid">
+            <div class="tech-card" data-tech="Python">
               <i class="fab fa-python"></i>
-              <h4>Python</h4>
-              <div class="skill-tags">
-                <span class="skill-tech-tag">Telegram Bots</span>
-                <span class="skill-tech-tag">Data Science</span>
-                <span class="skill-tech-tag">Data Analysis</span>
-                <span class="skill-tech-tag">Web3</span>
-              </div>
+              <span class="tech-name">Python</span>
             </div>
-            <div class="skill-card">
-              <i class="devicon-csharp-plain"></i>
-              <h4>C#</h4>
-              <div class="skill-tags">
-                <span class="skill-tech-tag">Unity</span>
-                <span class="skill-tech-tag">ASP.NET</span>
-                <span class="skill-tech-tag">WPF</span>
-              </div>
+
+            <div class="tech-card" data-tech="C#">
+              <i class="fas fa-code"></i>
+              <span class="tech-name">C#</span>
             </div>
-            <div class="skill-card">
-              <i class="devicon-cplusplus-plain"></i>
-              <h4>C++</h4>
-              <div class="skill-tags">
-                <span class="skill-tech-tag">Arduino</span>
-              </div>
+
+            <div class="tech-card" data-tech="C++">
+              <i class="fas fa-code"></i>
+              <span class="tech-name">C++</span>
             </div>
-            <div class="skill-card">
+
+            <div class="tech-card" data-tech="Java">
               <i class="fab fa-java"></i>
-              <h4>Java</h4>
-              <div class="skill-tags">
-                <span class="skill-tech-tag">Android</span>
-                <span class="skill-tech-tag">Minecraft</span>
-              </div>
+              <span class="tech-name">Java</span>
             </div>
-            <div class="skill-card">
+
+            <div class="tech-card" data-tech="Solidity">
               <i class="fab fa-ethereum"></i>
-              <h4>Solidity</h4>
-              <div class="skill-tags">
-                <span class="skill-tech-tag">Web3</span>
+              <span class="tech-name">Solidity</span>
+            </div>
+
+            <div class="tech-card" data-tech="T-SQL">
+              <i class="fas fa-database"></i>
+              <span class="tech-name">T-SQL</span>
+            </div>
+
+            <div class="tech-card" data-tech="PostgreSQL">
+              <i class="fas fa-database"></i>
+              <span class="tech-name">PostgreSQL</span>
+            </div>
+
+            <div class="tech-card" data-tech="MySQL">
+              <i class="fas fa-database"></i>
+              <span class="tech-name">MySQL</span>
+            </div>
+
+            <div class="tech-card" data-tech="HTML">
+              <i class="fab fa-html5"></i>
+              <span class="tech-name">HTML</span>
+            </div>
+
+            <div class="tech-card" data-tech="CSS">
+              <i class="fab fa-css3-alt"></i>
+              <span class="tech-name">CSS</span>
+            </div>
+
+            <div class="tech-card" data-tech="JavaScript">
+              <i class="fab fa-js-square"></i>
+              <span class="tech-name">JavaScript</span>
+            </div>
+
+            <div class="tech-card" data-tech="Git">
+              <i class="fab fa-git-alt"></i>
+              <span class="tech-name">Git</span>
+            </div>
+
+            <div class="tech-card" data-tech="Linux">
+              <i class="fab fa-linux"></i>
+              <span class="tech-name">Linux</span>
+            </div>
+
+            <div class="tech-card" data-tech="Blender">
+              <i class="fas fa-cube"></i>
+              <span class="tech-name">Blender</span>
+            </div>
+
+            <div class="tech-card" data-tech="Kotlin">
+              <i class="fas fa-mobile-alt"></i>
+              <span class="tech-name">Kotlin</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Education Section -->
+      <section id="education" class="education">
+        <div class="education-content">
+          <h2 class="section-title">
+            <span class="title-highlight">Образование</span>
+          </h2>
+          <p class="section-description">
+            Мой образовательный путь в программировании
+          </p>
+
+          <div class="education-timeline">
+            <!-- Timeline Graph -->
+            <div class="timeline-chart">
+              <div class="chart-header">
+                <h3>Параллельное обучение</h3>
+                <div class="chart-legend">
+                  <div class="legend-item">
+                    <div class="legend-color yandex"></div>
+                    <span>Яндекс Лицей</span>
+                  </div>
+                  <div class="legend-item">
+                    <div class="legend-color college"></div>
+                    <span>МПТ</span>
+                  </div>
+                  <div class="legend-item">
+                    <div class="legend-color university"></div>
+                    <span>РЭУ</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="chart-container">
+                <div class="year-axis">
+                  <div class="year-mark">2021</div>
+                  <div class="year-mark">2022</div>
+                  <div class="year-mark">2023</div>
+                  <div class="year-mark">2024</div>
+                  <div class="year-mark">2025</div>
+                </div>
+
+                <div class="education-bars">
+                  <div
+                    class="education-bar yandex-bar"
+                    data-start="2021"
+                    data-end="2023"
+                  >
+                    <div class="bar-content">
+                      <span class="bar-label">Яндекс Лицей</span>
+                    </div>
+                  </div>
+
+                  <div
+                    class="education-bar college-bar"
+                    data-start="2022"
+                    data-end="current"
+                  >
+                    <div class="bar-content">
+                      <span class="bar-label">МПТ</span>
+                      <span class="bar-status">в процессе</span>
+                    </div>
+                  </div>
+
+                  <div
+                    class="education-bar university-bar"
+                    data-start="2023"
+                    data-end="current"
+                  >
+                    <div class="bar-content">
+                      <span class="bar-label">РЭУ</span>
+                      <span class="bar-status">в процессе</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Education Details -->
+            <div class="education-details">
+              <div class="education-detail-item">
+                <div class="detail-icon yandex">
+                  <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="detail-content">
+                  <h4>Яндекс Лицей</h4>
+                  <p class="detail-period">2021 - 2023</p>
+                  <p class="detail-description">
+                    Промышленное программирование на Python
+                  </p>
+                </div>
+              </div>
+
+              <div class="education-detail-item">
+                <div class="detail-icon college">
+                  <i class="fas fa-laptop-code"></i>
+                </div>
+                <div class="detail-content">
+                  <h4>Московский приборостроительный техникум</h4>
+                  <p class="detail-period">2022 - настоящее время</p>
+                  <p class="detail-description">
+                    Информационные системы и программирование - Программист
+                  </p>
+                </div>
+              </div>
+
+              <div class="education-detail-item">
+                <div class="detail-icon university">
+                  <i class="fas fa-university"></i>
+                </div>
+                <div class="detail-content">
+                  <h4>
+                    Российский Экономический Университет им Г.В. Плеханова
+                  </h4>
+                  <p class="detail-period">2023 - настоящее время</p>
+                  <p class="detail-description">
+                    Бизнес школа "Интеграл" - Прикладная
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
+      </section>
 
-        <!-- Карточки с базами данных -->
-        <div class="skills-category animate-on-scroll" data-aos-delay="100">
-          <h3>Базы данных</h3>
-          <div class="skills-grid">
-            <div class="skill-card">
-              <i class="devicon-microsoftsqlserver-plain"></i>
-              <h4>T-SQL</h4>
-              <div class="skill-tags"></div>
-            </div>
-            <div class="skill-card">
-              <i class="devicon-postgresql-plain"></i>
-              <h4>PostgreSQL</h4>
-              <div class="skill-tags"></div>
-            </div>
-            <div class="skill-card">
-              <i class="devicon-mysql-plain"></i>
-              <h4>MySQL</h4>
-              <div class="skill-tags"></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Карточки с веб-технологиями -->
-        <div class="skills-category animate-on-scroll" data-aos-delay="200">
-          <h3>Веб Дизайн</h3>
-          <div class="skills-grid">
-            <div class="skill-card">
-              <i class="fab fa-html5"></i>
-              <h4>HTML</h4>
-              <div class="skill-tags"></div>
-            </div>
-            <div class="skill-card">
-              <i class="fab fa-css3-alt"></i>
-              <h4>CSS</h4>
-              <div class="skill-tags"></div>
-            </div>
-            <div
-              class="skill-card"
-              onclick="showCertificate('img/js-certificate.png')"
-            >
-              <i class="fab fa-js"></i>
-              <h4>JavaScript</h4>
-              <div class="skill-tags"></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Карточки с дополнительными технологиями -->
-        <div class="skills-category animate-on-scroll" data-aos-delay="300">
-          <h3>Технологии</h3>
-          <div class="skills-grid">
-            <div class="skill-card">
-              <i class="fab fa-git-alt"></i>
-              <h4>Git</h4>
-              <div class="skill-tags"></div>
-            </div>
-            <div class="skill-card">
-              <i class="fab fa-linux"></i>
-              <h4>Linux</h4>
-              <div class="skill-tags"></div>
-            </div>
-            <div class="skill-card">
-              <i class="devicon-blender-original"></i>
-              <h4>Blender</h4>
-              <div class="skill-tags"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Секция "Обо мне" -->
-    <section class="about-section">
-      <h2 class="section-title animate-on-scroll">Обо мне</h2>
-      <div class="content-card animate-on-scroll">
-        <p class="glow-text"></p>
-        <div class="about-description">
-          <p>
-            Меня зовут Александр мне 18 лет. Мой путь в IT начался с изучения
-            основ программирования в
-            <a
-              href="https://lyceum.yandex.ru/python"
-              target="_blank"
-              class="institution-link"
-              rel="nofollow"
-              >Яндекс Лицее</a
-            >, где я освоил Python и основы алгоритмизации.
+      <!-- Work Experience Section -->
+      <section id="experience" class="experience">
+        <div class="experience-content">
+          <h2 class="section-title">
+            <span class="title-highlight">Опыт работы</span>
+          </h2>
+          <p class="section-description">
+            Мой профессиональный опыт в разработке
           </p>
-          <br />
-          <p>
-            Сейчас я студент 3 курса
-            <a
-              href="https://mpt.ru"
-              target="_blank"
-              class="institution-link"
-              rel="nofollow"
-              >Московского приборостроительного техникума РЭУ им. Г. В.
-              Плеханова</a
-            >, где изучаю программирование и разработку программного
-            обеспечения. В техникуме я углубляю свои знания в различных языках
-            программирования, включая C#, C++, Java и другие. Особое внимание
-            уделяю изучению баз данных и Data Science с Data Analysis, что
-            позволяет мне развиваться в моем направлении.
-          </p>
-          <br />
-          <p>
-            Также я паралельно учусь на 2 курсе в
-            <a
-              href="https://www.rea.ru"
-              target="_blank"
-              class="institution-link"
-              rel="nofollow"
-              >РЭУ им Г.В. Плеханова</a
-            >. Где изучаю языки на академическом уровне. А также изучаю
-            экономику и прочие предметы нужные для IT.
-          </p>
-        </div>
-      </div>
-    </section>
 
-    <!-- Секция образования с временной шкалой -->
-    <section class="education-section">
-      <h2 class="section-title animate-on-scroll">Образование</h2>
-      <div class="timeline">
-        <div class="timeline-item animate-on-scroll">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <h3>Яндекс Лицей</h3>
-            <p class="timeline-date">2021 - 2023</p>
-            <p>Промышленное программирование на Python</p>
-          </div>
-        </div>
-        <div class="timeline-item animate-on-scroll">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <h3>Московский приборостроительный техникум</h3>
-            <p class="timeline-date">2022 - настоящее время</p>
-            <p>Информационные системы и программирование - Программист</p>
-          </div>
-        </div>
-        <div class="timeline-item animate-on-scroll">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <h3>Российский Экономический Университет им Г.В. Плеханова</h3>
-            <p class="timeline-date">2023 - настоящее время</p>
-            <p>Бизнес школа "Интеграл" - Прикладная информатика</p>
-          </div>
-        </div>
-      </div>
-    </section>
+          <div class="experience-timeline">
+            <div class="experience-item">
+              <div class="experience-card">
+                <div class="company-header">
+                  <div class="company-icon">
+                    <i class="fas fa-building"></i>
+                  </div>
+                  <div class="company-info">
+                    <h3 class="company-name">ПАО Газпром Автоматизация</h3>
+                    <p class="position">Android разработчик (Стажер) • 2025</p>
+                  </div>
+                </div>
 
-    <!-- Секция проектов -->
-    <section class="projects-section">
-      <h2 class="section-title animate-on-scroll">Проекты</h2>
-      <div class="projects-grid">
-        <a
-          href="https://github.com/Merrcurys/Mention-bot"
-          target="_blank"
-          class="project-card animate-on-scroll"
-        >
-          <div class="project-icon">
-            <i class="fas fa-comments"></i>
-          </div>
-          <div class="project-content">
-            <h3>Mention Bot</h3>
-            <p>
-              Разработка Telegram Bot на Python для отправки уведомлений всем в
-              группе, использующий Pyrogram.
-            </p>
-            <div class="project-tech">
-              <span>python</span>
-              <span>pyrogram</span>
-              <span>peewee</span>
+                <div class="experience-details">
+                  <div class="tech-stack">
+                    <span class="tech-label">Технологии:</span>
+                    <div class="tech-tags">
+                      <span class="tech-tag kotlin">
+                        <i class="fas fa-mobile-alt"></i>
+                        Kotlin
+                      </span>
+                      <span class="tech-tag android">
+                        <i class="fab fa-android"></i>
+                        Android
+                      </span>
+                    </div>
+                  </div>
+
+                  <div class="experience-description">
+                    <p>
+                      Разработка мобильных приложений для Android на языке
+                      Kotlin. Получение практического опыта работы в команде и
+                      разработки корпоративных решений.
+                    </p>
+                  </div>
+
+                  <div class="experience-achievements">
+                    <h5>Ключевые достижения:</h5>
+                    <ul>
+                      <li>Освоение современных подходов Android разработки</li>
+                      <li>Работа с корпоративными стандартами разработки</li>
+                      <li>Опыт работы в крупной IT-компании</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </a>
+        </div>
+      </section>
 
-        <a
-          href="https://github.com/Merrcurys/Visual-list-of-books-app"
-          target="_blank"
-          class="project-card animate-on-scroll"
-          data-aos-delay="100"
-        >
-          <div class="project-icon">
-            <i class="fas fa-book"></i>
-          </div>
-          <div class="project-content">
-            <h3>Book Tracker</h3>
-            <p>
-              Разработка десктопного приложение на Python для ведения трекинга
-              прочитанных книг и ведения коллекции цитат, использующий PyQt5.
-            </p>
-            <div class="project-tech">
-              <span>python</span>
-              <span>pyqt5</span>
-              <span>pillow</span>
-              <span>json</span>
+      <!-- Projects Section -->
+      <section id="projects" class="projects">
+        <div class="projects-content">
+          <h2 class="section-title">
+            <span class="title-highlight">Проекты</span>
+          </h2>
+          <p class="section-description">Мои лучшие разработки и проекты</p>
+
+          <div class="projects-grid">
+            <!-- Mention Bot Project -->
+            <div class="project-card">
+              <div class="project-header">
+                <div class="project-icon telegram">
+                  <i class="fab fa-telegram"></i>
+                </div>
+                <div class="project-info">
+                  <h3 class="project-title">Mention Bot</h3>
+                  <p class="project-subtitle">Telegram Bot на Python</p>
+                </div>
+              </div>
+
+              <div class="project-description">
+                <p>
+                  Разработка Telegram Bot на Python для отправки уведомлений
+                  всем в группе, использующий Pyrogram.
+                </p>
+              </div>
+
+              <div class="project-tech">
+                <div class="tech-tag python">
+                  <i class="fab fa-python"></i>
+                  <span>Python</span>
+                </div>
+                <div class="tech-tag pyrogram">
+                  <i class="fas fa-robot"></i>
+                  <span>Pyrogram</span>
+                </div>
+                <div class="tech-tag peewee">
+                  <i class="fas fa-database"></i>
+                  <span>Peewee</span>
+                </div>
+              </div>
+
+              <div class="project-actions">
+                <a href="#" class="project-btn github" target="_blank">
+                  <i class="fab fa-github"></i>
+                  <span>GitHub</span>
+                </a>
+                <a href="#" class="project-btn telegram" target="_blank">
+                  <i class="fab fa-telegram"></i>
+                  <span>Telegram</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- SeaCard Project -->
+            <div class="project-card">
+              <div class="project-header">
+                <div class="project-icon android">
+                  <i class="fab fa-android"></i>
+                </div>
+                <div class="project-info">
+                  <h3 class="project-title">SeaCard</h3>
+                  <p class="project-subtitle">Мобильное приложение на Kotlin</p>
+                </div>
+              </div>
+
+              <div class="project-description">
+                <p>
+                  Разработка мобильного приложения на Kotlin для хранения
+                  дисконтных карт.
+                </p>
+              </div>
+
+              <div class="project-tech">
+                <div class="tech-tag kotlin">
+                  <i class="fas fa-mobile-alt"></i>
+                  <span>Kotlin</span>
+                </div>
+                <div class="tech-tag compose">
+                  <i class="fas fa-layer-group"></i>
+                  <span>Jetpack Compose</span>
+                </div>
+                <div class="tech-tag zxing">
+                  <i class="fas fa-qrcode"></i>
+                  <span>ZXing</span>
+                </div>
+              </div>
+
+              <div class="project-actions">
+                <a href="#" class="project-btn github" target="_blank">
+                  <i class="fab fa-github"></i>
+                  <span>GitHub</span>
+                </a>
+                <a href="#" class="project-btn rustore" target="_blank">
+                  <i class="fas fa-store"></i>
+                  <span>RuStore</span>
+                </a>
+              </div>
             </div>
           </div>
-        </a>
-      </div>
-    </section>
-
-    <!-- Подключение скриптов -->
-    <script src="script.js"></script>
-    <!-- Модальное окно для отображения сертификатов -->
-    <div class="certificate-modal" onclick="closeCertificate()">
-      <div class="close-button">&times;</div>
-      <img src="" alt="Сертификат Python" />
+        </div>
+      </section>
     </div>
+
+    <script src="script.js"></script>
   </body>
 </html>
