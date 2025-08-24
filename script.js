@@ -335,4 +335,67 @@ document.addEventListener('DOMContentLoaded', function () {
     setTimeout(() => {
         document.body.classList.add('loaded');
     }, 100);
+
+    // Certificate Modal Functionality
+    const modal = document.getElementById('certificateModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const certificateImage = document.getElementById('certificateImage');
+    const modalClose = document.querySelector('.modal-close');
+
+    const certificates = {
+        'python': {
+            title: 'Сертификат Python',
+            image: 'img/certificates/python-certificat.jpg'
+        },
+        'javascript': {
+            title: 'Сертификат JavaScript',
+            image: 'img/certificates/js-certificate.png'
+        }
+    };
+
+    // Open modal when clicking on clickable tech cards
+    const clickableTechCards = document.querySelectorAll('.tech-card-clickable');
+    clickableTechCards.forEach(card => {
+        card.addEventListener('click', function () {
+            const certificateType = this.dataset.certificate;
+            const certificate = certificates[certificateType];
+
+            if (certificate) {
+                modalTitle.textContent = certificate.title;
+                certificateImage.src = certificate.image;
+                certificateImage.alt = certificate.title;
+                modal.classList.add('show');
+                document.body.style.overflow = 'hidden';
+            }
+        });
+    });
+
+    // Close modal functionality
+    function closeModal() {
+        modal.classList.remove('show');
+        document.body.style.overflow = '';
+    }
+
+    // Close modal when clicking the X button
+    modalClose.addEventListener('click', closeModal);
+
+    // Close modal when clicking outside the modal content
+    modal.addEventListener('click', function (e) {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && modal.classList.contains('show')) {
+            closeModal();
+        }
+    });
+
+    // Prevent modal content click from closing modal
+    const modalContent = document.querySelector('.modal-content');
+    modalContent.addEventListener('click', function (e) {
+        e.stopPropagation();
+    });
 });
