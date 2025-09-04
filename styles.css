@@ -9,7 +9,7 @@
     --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Text Selection Styling */
+/* Стиль выделения текста */
 ::selection {
     background: var(--primary);
     color: #000000;
@@ -35,7 +35,7 @@ body {
     min-height: 100vh;
 }
 
-/* Background Animation */
+/* Фоновая анимация */
 .background-animation {
     position: fixed;
     top: 0;
@@ -121,7 +121,52 @@ body {
     }
 }
 
-/* Navigation */
+/* Кнопка возвращения назад */
+.back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 50px;
+    height: 50px;
+    background: rgba(10, 10, 10, 0.6);
+    backdrop-filter: blur(15px) saturate(120%);
+    -webkit-backdrop-filter: blur(15px) saturate(120%);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all var(--transition);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    z-index: 1000;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3);
+}
+
+.back-to-top:hover {
+    background: rgba(10, 10, 10, 0.8);
+    color: var(--primary);
+    transform: translateY(-5px);
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Скрыть кнопки на телефоне */
+@media (max-width: 768px) {
+    .back-to-top {
+        display: none;
+    }
+}
+
+/* Навигация */
 .navbar {
     position: fixed;
     top: 1rem;
@@ -182,12 +227,11 @@ body {
     width: 100%;
 }
 
-/* Main Container */
 .main-container {
     margin-top: 100px;
 }
 
-/* Hero Section */
+/* Главная */
 .hero {
     min-height: 100vh;
     display: flex;
@@ -195,6 +239,118 @@ body {
     padding: 2rem;
     position: relative;
     overflow: hidden;
+}
+
+/* Плавающие контейнеры */
+.download-containers {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.download-container {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(0, 245, 255, 0.2);
+    border-radius: 20px;
+    padding: 2rem 1.5rem;
+    width: 180px;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0, 245, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.download-container.left {
+    left: 2rem;
+    animation: swayLeft 6s ease-in-out infinite;
+}
+
+.download-container.right {
+    right: 2rem;
+    animation: swayRight 6s ease-in-out infinite;
+}
+
+.download-container:hover {
+    transform: translateY(-50%) scale(1.05);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(0, 245, 255, 0.4);
+    box-shadow: 0 12px 40px rgba(0, 245, 255, 0.2);
+}
+
+.download-icon {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 0 10px rgba(0, 245, 255, 0.5));
+}
+
+.download-number {
+    font-size: 2rem;
+    font-weight: 800;
+    background: var(--gradient-accent);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.5rem;
+    line-height: 1;
+}
+
+.download-label {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    line-height: 1.3;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Покачивающаяся анимация */
+@keyframes swayLeft {
+
+    0%,
+    100% {
+        transform: translateY(-50%) translateX(0) rotate(0deg);
+    }
+
+    25% {
+        transform: translateY(-50%) translateX(-8px) rotate(-2deg);
+    }
+
+    50% {
+        transform: translateY(-50%) translateX(0) rotate(0deg);
+    }
+
+    75% {
+        transform: translateY(-50%) translateX(8px) rotate(2deg);
+    }
+}
+
+@keyframes swayRight {
+
+    0%,
+    100% {
+        transform: translateY(-50%) translateX(0) rotate(0deg);
+    }
+
+    25% {
+        transform: translateY(-50%) translateX(8px) rotate(2deg);
+    }
+
+    50% {
+        transform: translateY(-50%) translateX(0) rotate(0deg);
+    }
+
+    75% {
+        transform: translateY(-50%) translateX(-8px) rotate(-2deg);
+    }
 }
 
 .hero::before {
@@ -276,6 +432,10 @@ body {
     animation: fadeInUp 1s ease-out 0.4s both;
 }
 
+.role-text {
+    transition: opacity 0.3s ease-in-out;
+}
+
 .hero-description {
     font-size: 1.1rem;
     line-height: 1.8;
@@ -283,6 +443,38 @@ body {
     margin-bottom: 3rem;
     max-width: 600px;
     animation: fadeInUp 1s ease-out 0.6s both;
+}
+
+/* Индикатор прокрутки */
+.scroll-indicator {
+    position: absolute;
+    bottom: 10rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    animation: bounce 3s infinite;
+    cursor: pointer;
+    z-index: 10;
+}
+
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    40% {
+        transform: translateX(-50%) translateY(-20px);
+    }
+
+    60% {
+        transform: translateX(-50%) translateY(-10px);
+    }
 }
 
 .hero-buttons {
@@ -340,10 +532,7 @@ body {
     transform: translateY(-2px);
 }
 
-
-
-
-/* About Section */
+/* Обо мне */
 .about {
     padding: 6rem 2rem;
     position: relative;
@@ -373,18 +562,13 @@ body {
 }
 
 .about-text {
-    font-size: 1.2rem;
-    line-height: 1.8;
+    font-size: 1.4rem;
+    line-height: 1.;
     color: var(--text-secondary);
-    margin-bottom: 1.5rem;
+    margin-bottom: 2.6rem;
 }
 
 .about-text strong {
-    color: var(--primary);
-    font-weight: 600;
-}
-
-.age-normal {
     color: var(--primary);
     font-weight: 600;
 }
@@ -476,15 +660,15 @@ body {
     z-index: 1;
 }
 
-/* Responsive для About секции */
+/* Для телефона для секции "Обо мне" */
 @media (max-width: 768px) {
     .about-grid {
         grid-template-columns: 1fr;
-        gap: 3rem;
+        gap: 2rem;
     }
 
     .about-info {
-        text-align: center;
+        text-align: left;
     }
 
     .about-stats {
@@ -492,14 +676,26 @@ body {
         flex-direction: row;
         justify-content: center;
         flex-wrap: wrap;
+        gap: 1rem;
     }
 
     .stat-card {
         min-width: 140px;
+        padding: 1.5rem;
+    }
+
+    .about-intro {
+        margin-bottom: 1.5rem;
+    }
+
+    .about-text {
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
     }
 }
 
-/* Education Section */
+/* Образование */
 .education {
     padding: 6rem 2rem;
     position: relative;
@@ -587,7 +783,7 @@ body {
     background: linear-gradient(135deg, #a29bfe, #6c5ce7);
 }
 
-/* Chart Description */
+/* Описание диаграммы */
 .chart-description {
     margin-top: 2rem;
     padding: 1rem 0;
@@ -602,7 +798,7 @@ body {
     font-style: italic;
 }
 
-/* Chart Container */
+/* Контейнер для диаграмм */
 .chart-container {
     position: relative;
     height: 300px;
@@ -617,12 +813,26 @@ body {
     justify-content: space-between;
     margin-bottom: 1rem;
     padding: 0 1rem;
+    position: relative;
 }
 
 .year-mark {
     font-size: 0.9rem;
     color: var(--text-secondary);
     font-weight: 500;
+    position: relative;
+}
+
+.year-mark::before {
+    content: "";
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 260px;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: -1;
 }
 
 .education-bars {
@@ -647,27 +857,17 @@ body {
 
 .education-bar.yandex-bar {
     background: linear-gradient(90deg, rgba(255, 107, 107, 0.8), rgba(255, 142, 142, 0.6));
-    width: 50%;
-    /* 2021-2023 = 2 years out of 4 total */
     animation-delay: 0.2s;
 }
 
 .education-bar.college-bar {
     background: var(--gradient-accent);
-    width: 75%;
-    /* 2022-current = 3 years out of 4 total */
-    margin-left: 25%;
-    /* Start from 2022 (1 year offset) */
     animation-delay: 0.4s;
     opacity: 0.9;
 }
 
 .education-bar.university-bar {
     background: linear-gradient(90deg, rgba(162, 155, 254, 0.8), rgba(108, 92, 231, 0.6));
-    width: 50%;
-    /* 2023-current = 2 years out of 4 total */
-    margin-left: 50%;
-    /* Start from 2023 (2 years offset) */
     animation-delay: 0.6s;
 }
 
@@ -710,7 +910,7 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-/* Education Details */
+/* Детали образования */
 .education-details {
     display: flex;
     flex-direction: column;
@@ -815,7 +1015,7 @@ body {
     }
 }
 
-/* Responsive for Education Section */
+/* Для телефона для секции "Образование" */
 @media (max-width: 768px) {
     .education-timeline {
         grid-template-columns: 1fr;
@@ -863,9 +1063,9 @@ body {
     }
 
     .bar-content {
-        flex-direction: column;
+        flex-direction: row;
         gap: 0.3rem;
-        justify-content: center;
+        justify-content: space-between;
     }
 
     .bar-label {
@@ -878,7 +1078,7 @@ body {
     }
 }
 
-/* Work Experience Section */
+/* Опыт работы */
 .experience {
     padding: 6rem 2rem;
     position: relative;
@@ -953,7 +1153,7 @@ body {
     z-index: -1;
 }
 
-/* Company Logo Styling */
+/* Лого компании */
 .company-logo {
     width: 100%;
     height: 100%;
@@ -971,9 +1171,9 @@ body {
     display: none;
 }
 
-/* Educational Links Styling */
+/* Оформление образовательных ссылок */
 .edu-link {
-    color: var(--primary);
+    color: #c1d3da;
     text-decoration: none;
     transition: all var(--transition);
     border-bottom: 1px solid transparent;
@@ -981,7 +1181,7 @@ body {
 
 .edu-link:hover {
     color: var(--text-primary);
-    border-bottom-color: var(--primary);
+    border-bottom-color: #c1d3da;
     text-shadow: 0 0 10px rgba(0, 245, 255, 0.3);
 }
 
@@ -1107,7 +1307,7 @@ body {
     top: 0;
 }
 
-/* Responsive for Experience Section */
+/* Для телефона секция "Опыт работы" */
 @media (max-width: 768px) {
     .company-header {
         flex-direction: column;
@@ -1127,7 +1327,7 @@ body {
     }
 }
 
-/* Projects Section */
+/* Проекты */
 .projects {
     padding: 6rem 2rem;
     position: relative;
@@ -1355,7 +1555,7 @@ body {
     box-shadow: 0 8px 25px rgba(0, 136, 204, 0.4);
 }
 
-/* User Count Badge */
+/* Значок количества пользователей */
 .user-count-badge {
     position: absolute;
     bottom: 1rem;
@@ -1393,14 +1593,14 @@ body {
     text-transform: lowercase;
 }
 
-/* Button Icon Styling */
+/* Стиль значка кнопки */
 .btn-icon {
     width: 16px;
     height: 16px;
     object-fit: contain;
 }
 
-/* Project Logo Styling */
+/* Разработка дизайна логотипа проекта */
 .project-logo {
     width: 100%;
     height: 100%;
@@ -1420,7 +1620,7 @@ body {
     -webkit-backdrop-filter: blur(10px);
 }
 
-/* Responsive for Projects Section */
+/* Для телефона секция "Проекты" */
 @media (max-width: 768px) {
     .projects-grid {
         grid-template-columns: 1fr;
@@ -1462,9 +1662,41 @@ body {
     .project-btn {
         width: 100%;
     }
+
+    .user-count-badge {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        bottom: auto;
+        left: auto;
+        margin: 0;
+        padding: 0.4rem 0.7rem;
+        min-width: 70px;
+    }
+
+    .count-number {
+        font-size: 0.9rem;
+    }
+
+    .count-label {
+        font-size: 0.65rem;
+    }
+
+    .project-tech {
+        gap: 0.5rem;
+    }
+
+    .project-tech .tech-tag {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.75rem;
+    }
+
+    .project-description {
+        text-align: center;
+    }
 }
 
-/* Technologies Section */
+/* Технологии */
 .technologies {
     padding: 4rem 2rem;
     position: relative;
@@ -1557,9 +1789,6 @@ body {
 
 .tech-card:hover {
     transform: translateY(-5px);
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(25px) saturate(180%);
-    -webkit-backdrop-filter: blur(25px) saturate(180%);
     border: 1px solid rgba(255, 255, 255, 0.15);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
@@ -1586,16 +1815,6 @@ body {
     filter: drop-shadow(0 2px 8px rgba(0, 245, 255, 0.3)) brightness(0) saturate(100%) invert(50%) sepia(96%) saturate(6544%) hue-rotate(174deg) brightness(160%) contrast(101%);
 }
 
-.tech-card:hover .tech-icon i {
-    transform: scale(1.1);
-    filter: drop-shadow(0 2px 8px rgba(255, 255, 255, 0.2));
-}
-
-.tech-card:hover .tech-logo {
-    transform: scale(1.1);
-    filter: drop-shadow(0 2px 8px rgba(255, 255, 255, 0.2)) brightness(0) saturate(100%) invert(50%) sepia(96%) saturate(6544%) hue-rotate(174deg) brightness(160%) contrast(101%);
-}
-
 .tech-info {
     flex: 1;
     display: flex;
@@ -1611,11 +1830,6 @@ body {
     transition: all 0.4s ease;
     letter-spacing: 0.5px;
     margin-bottom: 0.5rem;
-}
-
-.tech-card:hover .tech-name {
-    color: var(--text-primary);
-    transform: translateY(-1px);
 }
 
 .tech-skills {
@@ -1639,13 +1853,6 @@ body {
     text-align: center;
 }
 
-.skill-badge:hover {
-    background: rgba(0, 245, 255, 0.2);
-    border-color: rgba(0, 245, 255, 0.5);
-    transform: scale(1.05);
-    box-shadow: 0 2px 8px rgba(0, 245, 255, 0.3);
-}
-
 .tech-description {
     font-size: 0.9rem;
     color: var(--text-secondary);
@@ -1653,11 +1860,6 @@ body {
     text-align: center;
     opacity: 0.9;
     transition: all 0.3s ease;
-}
-
-.tech-card:hover .tech-description {
-    color: rgba(255, 255, 255, 0.9);
-    opacity: 1;
 }
 
 .certificate-badge {
@@ -1678,18 +1880,11 @@ body {
     justify-content: center;
 }
 
-.certificate-badge:hover {
-    background: rgba(0, 245, 255, 0.2);
-    border-color: rgba(0, 245, 255, 0.5);
-    transform: scale(1.05);
-    box-shadow: 0 6px 20px rgba(0, 245, 255, 0.4);
-}
-
 .certificate-badge i {
     font-size: 0.9rem;
 }
 
-/* Clickable Technology Cards */
+/* Интерактивные карты */
 .tech-card-clickable {
     cursor: pointer;
     position: relative;
@@ -1699,7 +1894,7 @@ body {
     cursor: pointer;
 }
 
-/* Animations */
+/* Анимации */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -1712,10 +1907,35 @@ body {
     }
 }
 
-/* Responsive */
+/* Адаптив */
 @media (max-width: 1024px) {
     .hero-content {
         gap: 2rem;
+    }
+
+    .download-container {
+        width: 140px;
+        padding: 1.5rem 1rem;
+    }
+
+    .download-container.left {
+        left: 1rem;
+    }
+
+    .download-container.right {
+        right: 1rem;
+    }
+
+    .download-icon {
+        font-size: 2rem;
+    }
+
+    .download-number {
+        font-size: 1.6rem;
+    }
+
+    .download-label {
+        font-size: 0.75rem;
     }
 
     .tech-grid {
@@ -1769,6 +1989,11 @@ body {
 
     .hero {
         padding: 1rem;
+    }
+
+    /* Скрытие плавающих контейнеров */
+    .download-containers {
+        display: none;
     }
 
     .hero-buttons {
@@ -1833,6 +2058,10 @@ body {
 }
 
 @media (max-width: 480px) {
+    .navbar {
+        display: none;
+    }
+
     .nav-links {
         display: none;
     }
@@ -1856,18 +2085,96 @@ body {
         margin-bottom: 3rem;
     }
 
+    .about,
+    .education,
+    .experience,
+    .projects,
+    .technologies {
+        padding: 3rem 1rem;
+    }
+
+    .education {
+        padding: 1.5rem 1rem;
+    }
+
+    .education-timeline {
+        gap: 1.5rem;
+        margin-top: 1.5rem;
+    }
+
+    .timeline-chart {
+        min-height: 350px;
+        padding: 1.2rem;
+    }
+
+    .chart-container {
+        height: 180px;
+    }
+
+    .education-bars {
+        height: 130px;
+        gap: 0.8rem;
+    }
+
+    .education-bar {
+        height: 35px;
+    }
+
+    .bar-content {
+        padding: 0 0.4rem;
+    }
+
+    .bar-label {
+        font-size: 0.65rem;
+    }
+
+    .bar-status {
+        font-size: 0.65rem;
+        padding: 0.15rem 0.4rem;
+    }
+
+    .education-details {
+        gap: 0.8rem;
+    }
+
+    .education-detail-item {
+        padding: 0.8rem;
+        gap: 0.6rem;
+        min-height: auto;
+    }
+
+    .detail-icon {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+    }
+
+    .detail-content h4 {
+        font-size: 0.85rem;
+    }
+
+    .detail-period {
+        font-size: 0.7rem;
+    }
+
+    .detail-description {
+        font-size: 0.75rem;
+        line-height: 1.3;
+    }
+
     .tech-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.5rem;
     }
 
     .category-title {
-        font-size: 1.1rem;
-        padding: 0.5rem 0.7rem;
+        font-size: 1rem;
+        padding: 0.4rem 0.6rem;
         text-align: center;
         border-left: none;
-        border-top: 3px solid var(--primary);
+        border-top: 2px solid var(--primary);
         justify-content: center;
+        font-weight: 600;
     }
 
     .tech-category {
@@ -1875,48 +2182,291 @@ body {
     }
 
     .tech-card {
-        min-height: 120px;
-        padding: 1rem;
+        min-height: auto;
+        padding: 0.6rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .tech-icon {
+        margin-bottom: 0.4rem;
     }
 
     .tech-icon i {
-        font-size: 1.8rem;
+        font-size: 1.4rem;
     }
 
     .tech-logo {
-        width: 1.8rem;
-        height: 1.8rem;
+        width: 1.4rem;
+        height: 1.4rem;
         filter: drop-shadow(0 2px 8px rgba(0, 245, 255, 0.3)) brightness(0) saturate(100%) invert(50%) sepia(96%) saturate(6544%) hue-rotate(174deg) brightness(160%) contrast(101%);
     }
 
+    .tech-info {
+        gap: 0;
+    }
+
     .tech-name {
-        font-size: 0.95rem;
+        font-size: 0.8rem;
+        margin-bottom: 0;
     }
 
     .tech-description {
-        font-size: 0.75rem;
-        line-height: 1.4;
+        display: none;
     }
 
     .skill-badge {
-        font-size: 0.65rem;
-        padding: 0.2rem 0.5rem;
-        gap: 0.3rem;
+        display: none;
     }
 
     .tech-skills {
-        gap: 0.3rem;
+        display: none;
     }
 
     .certificate-badge {
+        display: none;
+    }
+
+    .experience-card {
+        padding: 1.5rem;
+    }
+
+    .company-header {
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .company-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.4rem;
+    }
+
+    .company-name {
+        font-size: 1.2rem;
+    }
+
+    .position {
+        font-size: 1rem;
+    }
+
+    .tech-tags {
+        gap: 0.5rem;
+    }
+
+    .tech-tag {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+
+    .experience-description {
+        margin-bottom: 1.5rem;
+    }
+
+    .experience-description p {
+        font-size: 0.9rem;
+    }
+
+    .experience-achievements h5 {
+        font-size: 1rem;
+    }
+
+    .experience-achievements li {
+        font-size: 0.9rem;
+        margin-bottom: 0.6rem;
+        padding-left: 1.2rem;
+    }
+
+    .project-card {
+        padding: 1.5rem;
+    }
+
+    .project-header {
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .project-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.4rem;
+    }
+
+    .project-title {
+        font-size: 1.2rem;
+    }
+
+    .project-subtitle {
+        font-size: 0.9rem;
+    }
+
+    .project-tech {
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .project-tech .tech-tag {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+
+    .project-description {
+        margin-bottom: 1.5rem;
+        text-align: center;
+    }
+
+    .project-description p {
+        font-size: 0.9rem;
+    }
+
+    .project-actions {
+        gap: 0.5rem;
+    }
+
+    .project-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+    }
+
+    .user-count-badge {
+        padding: 0.3rem 0.6rem;
+        min-width: 60px;
+    }
+
+    .count-number {
+        font-size: 0.8rem;
+    }
+
+    .count-label {
         font-size: 0.6rem;
-        padding: 0.25rem 0.4rem;
-        top: 0.5rem;
-        right: 0.5rem;
+    }
+
+    .about-stats {
+        gap: 0.8rem;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .stat-card {
+        padding: 1.2rem;
+        min-width: 130px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.6rem;
+        flex-direction: row;
+    }
+
+    .stat-icon {
+        font-size: 1.3rem;
+        margin-bottom: 0;
+    }
+
+    .stat-number {
+        font-size: 1.6rem;
+        margin-bottom: 0;
+    }
+
+    .stat-label {
+        font-size: 0.85rem;
+        margin-bottom: 0;
+    }
+
+    .stat-content {
+        display: flex;
+        flex-direction: row;
+        align-items: baseline;
+        gap: 0.4rem;
+    }
+
+    .about-text {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+        text-align: left;
+        line-height: 1.6;
+    }
+
+    .about-info {
+        text-align: left;
+    }
+
+    .about-intro {
+        margin-bottom: 1.2rem;
+    }
+
+    .age-highlight {
+        font-size: 1.1em;
+    }
+
+    .hero {
+        padding: 1rem;
+        min-height: 90vh;
+    }
+
+    .download-containers {
+        display: none;
+    }
+
+    .hero-content {
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+
+    .hero-center {
+        gap: 0.5rem;
+    }
+
+    .main-title {
+        font-size: clamp(2.5rem, 8vw, 4rem);
+        margin-bottom: 0.5rem;
+        line-height: 1;
+    }
+
+    .role-container {
+        gap: 0.4rem;
+        font-size: clamp(1.5rem, 4vw, 2.2rem);
+        margin-bottom: 1.2rem;
+        min-height: 65px;
+        height: 65px;
+    }
+
+    .hero-description-section {
+        max-width: 100%;
+    }
+
+    .hero-description {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+        line-height: 1.6;
+        padding: 0 1rem;
+    }
+
+    .hero-buttons {
+        gap: 1rem;
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .btn {
+        padding: 0.8rem 2rem;
+        font-size: 1rem;
+        width: auto;
+        max-width: none;
+        justify-content: center;
+        min-width: 120px;
+    }
+
+    .scroll-indicator {
+        font-size: 1.8rem;
+        bottom: 1rem;
     }
 }
 
-/* Certificate Modal */
+/* Модальное окно сертификатов */
 .modal {
     display: none;
     position: fixed;
@@ -2026,7 +2576,7 @@ body {
     }
 }
 
-/* Responsive Modal */
+/* Адаптив для модального окна */
 @media (max-width: 768px) {
     .modal-content {
         margin: 1rem;

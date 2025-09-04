@@ -1,13 +1,12 @@
 # Сайт портфолио
 
-Мой личный сайт-портфолио, демонстрирующий мои навыки, образование и проекты.
-![image](https://github.com/user-attachments/assets/357093a9-39e5-4a87-9c50-040ca7d0abd7)
+Мой личный сайт-портфолио, демонстрирующий мои навыки, образование, опыт работы и мои проекты.
+![image](https://github.com/Merrcurys/Portfolio-Website/tree/master/img/telegram-view.jpg)
 
 ## Особенности
 
 - Современный дизайн
 - Анимированные переходы и эффекты
-- Интерактивный фон с "нейронами"
 - Адаптивная верстка для всех устройств
 
 ## Технологии
@@ -31,7 +30,7 @@ portfolio/
 ├── index.html          # Основной HTML файл
 ├── styles.css          # Стили
 ├── script.js           # JavaScript функционал
-└── img/               # Изображения и фавикон
+└── img/               # Изображения
 ```
 
 ## Установка и запуск
@@ -39,7 +38,7 @@ portfolio/
 1. Клонируйте репозиторий
 
 ```bash
-git clone https://github.com/Merrcurys/The-First-Site.git
+git clone https://github.com/Merrcurys/Portfolio-Website.git
 ```
 
 2. Откройте `index.html` в браузере

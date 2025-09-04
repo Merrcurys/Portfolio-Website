@@ -19,18 +19,13 @@ document.addEventListener('DOMContentLoaded', function () {
         const age = calculateAge(birthDate);
 
         // Обновляем основной счетчик возраста
-        const ageCounter = document.getElementById('ageCounter');
         const ageDisplay = document.getElementById('ageDisplay');
-
-        if (ageCounter) {
-            ageCounter.textContent = age;
-        }
 
         if (ageDisplay) {
             ageDisplay.textContent = age;
         }
 
-        // Анимированное обновление лет в IT (с 1 октября 2021)
+        // Анимированное обновление лет в IT
         const codingYears = document.getElementById('codingYears');
         if (codingYears) {
             const itStartDate = new Date('2020-10-01'); // 1 октября 2021
@@ -69,167 +64,89 @@ document.addEventListener('DOMContentLoaded', function () {
         requestAnimationFrame(updateNumber);
     }
 
-    // Projects section animation
-    function initProjectsAnimation() {
-        const observerOptions = {
-            threshold: 0.2,
-            rootMargin: '0px 0px -100px 0px'
-        };
+    // Function to update education timeline based on data attributes
+    function updateEducationTimeline() {
+        const educationBars = document.querySelectorAll('.education-bar');
+        const timelineStart = 2021; // Start year of the timeline
+        const timelineEnd = 2026;   // End year of the timeline
+        const timelineDuration = timelineEnd - timelineStart; // Total timeline duration in years
 
-        const projectsObserver = new IntersectionObserver(function (entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const projectCards = entry.target.querySelectorAll('.project-card');
+        educationBars.forEach(bar => {
+            // Parse start date (supporting both "yyyy" and "mm.yyyy" formats)
+            let startYear, startMonth = 0;
+            const startData = bar.dataset.start;
+            if (startData.includes('.')) {
+                // Format: mm.yyyy
+                const [month, year] = startData.split('.');
+                startYear = parseInt(year);
+                startMonth = parseInt(month) - 1; // Convert to 0-based month
+            } else {
+                // Format: yyyy
+                startYear = parseInt(startData);
+            }
 
-                    projectCards.forEach((card, index) => {
-                        setTimeout(() => {
-                            card.style.animationPlayState = 'running';
-                        }, index * 200);
-                    });
+            // Parse end date (supporting both "yyyy"/"mm.yyyy" formats and "current")
+            let endYear, endMonth = 11; // Default to December (11 in 0-based)
+            if (bar.dataset.end === 'current') {
+                const now = new Date();
+                endYear = now.getFullYear();
+                endMonth = now.getMonth(); // 0-based month
+            } else {
+                if (bar.dataset.end.includes('.')) {
+                    // Format: mm.yyyy
+                    const [month, year] = bar.dataset.end.split('.');
+                    endYear = parseInt(year);
+                    endMonth = parseInt(month) - 1; // Convert to 0-based month
+                } else {
+                    // Format: yyyy
+                    endYear = parseInt(bar.dataset.end);
                 }
-            });
-        }, observerOptions);
+            }
 
-        const projectsSection = document.querySelector('.projects-grid');
-        if (projectsSection) {
-            projectsObserver.observe(projectsSection);
-        }
+            // Convert to decimal years for precise calculation
+            // Position the start at the beginning of the month and end at the end of the month
+            const startDecimal = startYear + (startMonth / 12);
+            const endDecimal = endYear + ((endMonth + 1) / 12); // End at the end of the specified month
+            const timelineStartDecimal = timelineStart;
+            const timelineEndDecimal = timelineEnd;
+            const timelineDurationDecimal = timelineEndDecimal - timelineStartDecimal;
+
+            // Calculate position and width based on timeline duration
+            const startPercent = ((startDecimal - timelineStartDecimal) / timelineDurationDecimal) * 100;
+            const widthPercent = ((endDecimal - startDecimal) / timelineDurationDecimal) * 100;
+
+            // Apply calculated styles
+            bar.style.marginLeft = `${startPercent}%`;
+            bar.style.width = `${widthPercent}%`;
+        });
     }
 
-    // Initialize projects animation
-    initProjectsAnimation();
-
-    // Experience section animation
-    function initExperienceAnimation() {
-        const observerOptions = {
-            threshold: 0.2,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const experienceObserver = new IntersectionObserver(function (entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const experienceItems = entry.target.querySelectorAll('.experience-item');
-
-                    experienceItems.forEach((item, index) => {
-                        setTimeout(() => {
-                            item.style.animationPlayState = 'running';
-                        }, index * 300);
-                    });
-                }
-            });
-        }, observerOptions);
-
-        const experienceSection = document.querySelector('.experience-timeline');
-        if (experienceSection) {
-            experienceObserver.observe(experienceSection);
-        }
-    }
-
-    // Initialize experience animation
-    initExperienceAnimation();
-
-    // Education timeline animation
-    function initEducationTimeline() {
-        const observerOptions = {
-            threshold: 0.3,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const timelineObserver = new IntersectionObserver(function (entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const timeline = entry.target;
-                    const bars = timeline.querySelectorAll('.education-bar');
-                    const details = timeline.querySelectorAll('.education-detail-item');
-
-                    // Animate bars
-                    bars.forEach((bar, index) => {
-                        setTimeout(() => {
-                            bar.style.animationPlayState = 'running';
-                        }, index * 200);
-                    });
-
-                    // Animate details
-                    details.forEach((detail, index) => {
-                        setTimeout(() => {
-                            detail.style.animationPlayState = 'running';
-                        }, 800 + index * 200);
-                    });
-                }
-            });
-        }, observerOptions);
-
-        const educationSection = document.querySelector('.education-timeline');
-        if (educationSection) {
-            timelineObserver.observe(educationSection);
-        }
-    }
-
-    // Initialize education timeline
-    initEducationTimeline();
+    // Run the update function when the page loads
+    updateEducationTimeline();
 
     // Запускаем обновление возраста
     updateAge();
 
-    // Обновляем возраст каждый час (на случай если сайт открыт долго)
-    setInterval(updateAge, 3600000); // 1 час
     // Анимация смены ролей
     const roleText = document.getElementById('roleText');
     const roles = ['Python Developer', 'SQL Developer', 'Android Developer', 'Data Analyst'];
     let currentRoleIndex = 0;
-    let isTyping = false;
-
-    function typeWriter(text, element, callback) {
-        isTyping = true;
-        element.innerHTML = '&nbsp;'; // Очищаем контейнер, но оставляем невидимый символ
-        let i = 0;
-
-        function type() {
-            if (i === 0) {
-                element.textContent = ''; // Очищаем перед началом печати
-            }
-            if (i < text.length) {
-                element.textContent += text.charAt(i);
-                i++;
-                setTimeout(type, 80);
-            } else {
-                isTyping = false;
-                if (callback) callback();
-            }
-        }
-
-        type();
-    }
-
-    function eraseText(element, callback) {
-        const text = element.textContent;
-        let i = text.length;
-
-        function erase() {
-            if (i > 0) {
-                element.textContent = text.substring(0, i - 1);
-                i--;
-                setTimeout(erase, 50);
-            } else {
-                // Добавляем невидимый символ для сохранения высоты
-                element.innerHTML = '&nbsp;';
-                if (callback) callback();
-            }
-        }
-
-        erase();
-    }
+    let isTransitioning = false;
 
     function switchRole() {
-        if (isTyping) return;
+        if (isTransitioning) return;
 
-        eraseText(roleText, function () {
+        isTransitioning = true;
+
+        roleText.style.opacity = '0';
+
+        setTimeout(() => {
             currentRoleIndex = (currentRoleIndex + 1) % roles.length;
-            setTimeout(function () {
-                typeWriter(roles[currentRoleIndex], roleText);
-            }, 300);
-        });
+            roleText.textContent = roles[currentRoleIndex];
+
+            roleText.style.opacity = '1';
+            isTransitioning = false;
+        }, 300);
     }
 
     // Запуск анимации смены ролей каждые 3.5 секунды
@@ -263,7 +180,6 @@ document.addEventListener('DOMContentLoaded', function () {
         lastScrollY = window.scrollY;
     });
 
-    // Intersection Observer для анимации элементов
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
@@ -286,10 +202,6 @@ document.addEventListener('DOMContentLoaded', function () {
         element.style.transition = `opacity 0.8s ease ${index * 0.1}s, transform 0.8s ease ${index * 0.1}s`;
         observer.observe(element);
     });
-
-
-
-
 
     // Плавная прокрутка для навигации
     const navLinks = document.querySelectorAll('.nav-link');
@@ -336,7 +248,7 @@ document.addEventListener('DOMContentLoaded', function () {
         document.body.classList.add('loaded');
     }, 100);
 
-    // Certificate Modal Functionality
+    // Функциональность модального сертификата
     const modal = document.getElementById('certificateModal');
     const modalTitle = document.getElementById('modalTitle');
     const certificateImage = document.getElementById('certificateImage');
@@ -353,7 +265,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     };
 
-    // Open modal when clicking on clickable tech cards
     const clickableTechCards = document.querySelectorAll('.tech-card-clickable');
     clickableTechCards.forEach(card => {
         card.addEventListener('click', function () {
@@ -370,32 +281,78 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Close modal functionality
+    // Закрытие модального окна
     function closeModal() {
         modal.classList.remove('show');
         document.body.style.overflow = '';
     }
 
-    // Close modal when clicking the X button
     modalClose.addEventListener('click', closeModal);
 
-    // Close modal when clicking outside the modal content
     modal.addEventListener('click', function (e) {
         if (e.target === modal) {
             closeModal();
         }
     });
 
-    // Close modal with Escape key
     document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape' && modal.classList.contains('show')) {
             closeModal();
         }
     });
 
-    // Prevent modal content click from closing modal
     const modalContent = document.querySelector('.modal-content');
     modalContent.addEventListener('click', function (e) {
         e.stopPropagation();
     });
+
+    // Функциональность индикатора прокрутки
+    const scrollIndicator = document.querySelector('.scroll-indicator');
+    if (scrollIndicator) {
+        scrollIndicator.addEventListener('click', function () {
+            const nextSection = document.querySelector('#about');
+            if (nextSection) {
+                nextSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    }
+
+    // Функциональность кнопки возвращения назад
+    const backToTopButton = document.getElementById('backToTop');
+
+    // Отображение кнопки
+    window.addEventListener('scroll', function () {
+        if (backToTopButton) {
+            if (window.scrollY > 600) { // Show button after scrolling 600px
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        }
+    });
+
+    if (backToTopButton) {
+        backToTopButton.addEventListener('click', function () {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+
+    // Наведения курсора на навигационную панель
+    if (navbar) {
+        navbar.addEventListener('mouseenter', function () {
+            this.style.transform = 'translateY(0)';
+        });
+
+        navbar.addEventListener('mouseleave', function () {
+            if (window.scrollY > 200) {
+                this.style.transform = 'translateY(-100%)';
+            }
+        });
+    }
 });

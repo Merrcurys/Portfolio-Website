@@ -1,9 +1,39 @@
 <!DOCTYPE html>
 <html lang="ru">
   <head>
+    <!-- Основные мета-теги для SEO и отображения -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <meta
+      name="description"
+      content="Портфолио Александра Себежко (Merrcurys) - разработчика программного обеспечения. Специализация: Python, SQL, Data Science."
+    />
+    <meta
+      name="keywords"
+      content="Merrcurys, Александр Себежко, Море карт, Mention Bot, Python разработчик, SQL разработчик, Data Science, Data Analysis, портфолио программиста, Python, SQL, разработчик ПО, студент РЭУ, студент МПТ"
+    />
+
+    <link rel="canonical" href="https://merrcurys.ru" />
+    <!-- Open Graph мета-теги для красивого отображения при шеринге в соцсетях -->
+    <meta property="og:title" content="Merrcurys | Портфолио разработчика" />
+    <meta
+      property="og:description"
+      content="Портфолио Александра Себежко (Merrcurys) - разработчика программного обеспечения. Специализация: Python, SQL, Data Science."
+    />
+    <meta
+      property="og:image"
+      content="https://merrcurys.ru/img/telegram-view.jpg"
+    />
+    <!-- Настройки для отображения превью в Telegram -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:url" content="https://merrcurys.ru" />
+    <meta property="og:type" content="website" />
+    <meta property="og:logo" content="https://merrcurys.ru/img/favicon.png" />
+
     <title>Merrcurys | Портфолио разработчика</title>
+    <link rel="icon" type="image/svg+xml" href="img/favicon.svg" />
+    <link rel="icon" type="image/png" href="img/favicon.png" />
     <link rel="stylesheet" href="styles.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
@@ -13,9 +43,32 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
+    <!-- Скрипт Яндекс.Метрики для отслеживания посещаемости -->
+    <script type="text/javascript">
+      (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+      m[i].l=1*new Date();
+      for(var j=0;j(document.createElement('script')).src=
+      '//mc.yandex.ru/metrika/tag.js',k.parentNode.insertBefore(a,k))})
+      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+      ym(100462954, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+      });
+    </script>
+    <noscript>
+      <div>
+        <img
+          src="https://mc.yandex.ru/watch/100462954"
+          style="position: absolute; left: -9999px"
+          alt=""
+        />
+      </div>
+    </noscript>
   </head>
   <body>
-    <!-- Animated Background -->
+    <!-- Анимированный фон -->
     <div class="background-animation">
       <div class="floating-shapes">
         <div class="shape shape-1"></div>
@@ -26,7 +79,7 @@
       </div>
     </div>
 
-    <!-- Navigation -->
+    <!-- Навигация -->
     <nav class="navbar">
       <div class="nav-container">
         <div class="nav-links">
@@ -41,8 +94,31 @@
     </nav>
 
     <div class="main-container">
-      <!-- Hero Section -->
+      <!-- Главная -->
       <section id="home" class="hero">
+        <!-- Покачивающиеся контейнеры -->
+        <div class="download-containers">
+          <div class="download-container left">
+            <div class="download-icon">
+              <i class="fab fa-telegram"></i>
+            </div>
+            <div class="download-stats">
+              <div class="download-number">200+</div>
+              <div class="download-label">активных чатов<br>Mention Bot</div>
+            </div>
+          </div>
+          
+          <div class="download-container right">
+            <div class="download-icon">
+              <i class="fas fa-mobile-alt"></i>
+            </div>
+            <div class="download-stats">
+              <div class="download-number">8000+</div>
+              <div class="download-label">пользователей<br>Море карт</div>
+            </div>
+          </div>
+        </div>
+        
         <div class="hero-content">
           <div class="hero-center">
             <h1 class="main-title">
@@ -75,14 +151,24 @@
 
           <div class="hero-description-section">
             <p class="hero-description">
-              Превращаю кофе в код и идеи в работающие приложения. Создаю
-              элегантные решения на разных языках, которые работают.
+              В жизни я ценю универсальность и этот же подход применяю к своему стеку технологий.
+              Пока специалисты ищут идеальный инструмент, я уже закрываю десять задач.
             </p>
           </div>
         </div>
+        
+        <!-- Индикатор прокрутки -->
+        <div class="scroll-indicator">
+          <i class="fas fa-chevron-down"></i>
+        </div>
       </section>
 
-      <!-- About Section -->
+      <!-- Кнопка возвращения назад -->
+      <button id="backToTop" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+      </button>
+
+      <!-- Обо мне -->
       <section id="about" class="about">
         <div class="about-content">
           <h2 class="section-title">
@@ -96,17 +182,13 @@
             <div class="about-info">
               <div class="about-intro">
                 <p class="about-text">
-                  Меня зовут <strong>Александр</strong>, мне
-                  <span id="ageCounter" class="age-normal">19</span> лет. Мой
-                  путь в IT начался с изучения основ программирования в
+                  Меня зовут Александр. Мой путь в IT начался с изучения основ программирования в
                   <strong><a href="https://lyceum.yandex.ru/python" target="_blank" class="edu-link">Яндекс Лицее</a></strong>, где я освоил Python и основы
                   алгоритмизации.
                 </p>
-              </div>
 
-              <div class="education-text">
                 <p class="about-text">
-                  Сейчас я студен 4 курса
+                  Сейчас я студент 4 курса
                   <strong
                     ><a href="https://mpt.ru" target="_blank" class="edu-link">Московского приборостроительного техникума РЭУ им. Г. В.
                     Плеханова</a></strong
@@ -117,7 +199,7 @@
                 </p>
 
                 <p class="about-text">
-                  Также я паралельно учусь на 3 курсе в
+                  Также я параллельно учусь на 3 курсе в
                   <strong><a href="https://www.rea.ru" target="_blank" class="edu-link">РЭУ им Г.В. Плеханова</a></strong>,
                   где изучаю языки на академическом уровне. А также изучаю
                   экономику и прочие предметы нужные для IT.
@@ -131,7 +213,7 @@
                   <i class="fas fa-birthday-cake"></i>
                 </div>
                 <div class="stat-content">
-                  <div class="stat-number" id="ageDisplay">18</div>
+                  <div class="stat-number" id="ageDisplay"></div>
                   <div class="stat-label">лет</div>
                 </div>
               </div>
@@ -150,7 +232,7 @@
         </div>
       </section>
 
-      <!-- Technologies Section -->
+      <!-- Технологии -->
       <section id="technologies" class="technologies">
         <div class="technologies-content">
           <h2 class="section-title">
@@ -160,7 +242,7 @@
             Стек технологий, с которыми я работаю
           </p>
 
-          <!-- Programming Languages -->
+          <!-- Языки программирования -->
           <div class="tech-category">
             <h3 class="category-title">Языки программирования</h3>
             <div class="tech-grid">
@@ -289,7 +371,7 @@
             </div>
           </div>
 
-          <!-- Databases -->
+          <!-- Базы данных -->
           <div class="tech-category">
             <h3 class="category-title">Базы данных</h3>
             <div class="tech-grid">
@@ -322,7 +404,7 @@
             </div>
           </div>
 
-          <!-- Technologies -->
+          <!-- Технологии -->
           <div class="tech-category">
             <h3 class="category-title">Технологии</h3>
             <div class="tech-grid">
@@ -361,7 +443,7 @@
             </div>
           </div>
 
-          <!-- Artificial Intelligence -->
+          <!-- Искусственный интеллект -->
           <div class="tech-category">
             <h3 class="category-title">Искусственный интеллект</h3>
             <div class="tech-grid">
@@ -408,7 +490,7 @@
         </div>
       </section>
 
-      <!-- Education Section -->
+      <!-- Образование -->
       <section id="education" class="education">
         <div class="education-content">
           <h2 class="section-title">
@@ -452,8 +534,8 @@
                 <div class="education-bars">
                   <div
                     class="education-bar yandex-bar"
-                    data-start="2021"
-                    data-end="2023"
+                    data-start="09.2021"
+                    data-end="12.2022"
                   >
                     <div class="bar-content">
                       <span class="bar-label">Яндекс Лицей</span>
@@ -462,7 +544,7 @@
 
                   <div
                     class="education-bar college-bar"
-                    data-start="2022"
+                    data-start="09.2022"
                     data-end="current"
                   >
                     <div class="bar-content">
@@ -473,7 +555,7 @@
 
                   <div
                     class="education-bar university-bar"
-                    data-start="2023"
+                    data-start="09.2023"
                     data-end="current"
                   >
                     <div class="bar-content">
@@ -492,7 +574,7 @@
               </div>
             </div>
 
-            <!-- Education Details -->
+            <!-- Детали образования -->
             <div class="education-details">
               <div class="education-detail-item">
                 <div class="detail-icon yandex">
@@ -500,7 +582,7 @@
                 </div>
                 <div class="detail-content">
                   <h4>Яндекс Лицей</h4>
-                  <p class="detail-period">2021 - 2023</p>
+                  <p class="detail-period">2021 - 2022</p>
                   <p class="detail-description">
                     Промышленное программирование на Python
                   </p>
@@ -539,7 +621,7 @@
         </div>
       </section>
 
-      <!-- Work Experience Section -->
+      <!-- Опыт работы -->
       <section id="experience" class="experience">
         <div class="experience-content">
           <h2 class="section-title">
@@ -601,7 +683,7 @@
         </div>
       </section>
 
-      <!-- Projects Section -->
+      <!-- Проекты -->
       <section id="projects" class="projects">
         <div class="projects-content">
           <h2 class="section-title">
@@ -610,7 +692,7 @@
           <p class="section-description">Мои лучшие разработки и проекты</p>
 
           <div class="projects-grid">
-            <!-- Mention Bot Project -->
+            <!-- Mention Bot -->
             <div class="project-card">
               <div class="project-header">
                 <div class="project-icon mention-bot">
@@ -658,7 +740,7 @@
               </div>
             </div>
 
-            <!-- SeaCard Project -->
+            <!-- SeaCard -->
             <div class="project-card">
               <div class="project-header">
                 <div class="project-icon seacard">
@@ -700,7 +782,7 @@
               </div>
 
               <div class="user-count-badge">
-                <div class="count-number">7.000+</div>
+                <div class="count-number">8000+</div>
                 <div class="count-label">пользователей</div>
               </div>
             </div>
@@ -709,7 +791,7 @@
       </section>
     </div>
 
-    <!-- Certificate Modal -->
+    <!-- Модальное окно сертификатов -->
     <div id="certificateModal" class="modal">
       <div class="modal-content">
         <span class="modal-close">&times;</span>
