@@ -30,7 +30,7 @@ portfolio/
 ├── index.html          # Основной HTML файл
 ├── styles.css          # Стили
 ├── script.js           # JavaScript функционал
-└── img/               # Изображения
+└── img/                # Изображения
 ```
 
 ## Установка и запуск

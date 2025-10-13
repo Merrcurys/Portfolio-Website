@@ -355,4 +355,91 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }
+
+    // Функция для получения количества пользователей из RuStore
+    async function fetchRuStoreUserCount() {
+        try {
+            // Используем CORS-прокси для обхода ограничений
+            const proxyUrl = 'https://api.allorigins.win/raw?url=';
+            const targetUrl = 'https://www.rustore.ru/catalog/app/com.example.seacard';
+
+            const response = await fetch(proxyUrl + encodeURIComponent(targetUrl));
+            const html = await response.text();
+
+            // Создаем временный DOM элемент для парсинга HTML
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+
+            // Ищем элемент с классом "_2lQvpT7g" внутри li с классами "_0OqlYrbK u72gOffp"
+            // который содержит "Скачиваний"
+            const downloadElements = doc.querySelectorAll('li._0OqlYrbK.u72gOffp');
+            let userCountElement = null;
+
+            // Ищем элемент, который содержит "Скачиваний"
+            for (let i = 0; i < downloadElements.length; i++) {
+                const span = downloadElements[i].querySelector('span.Iqzc_iUx');
+                if (span && span.textContent.includes('Скачиваний')) {
+                    userCountElement = downloadElements[i].querySelector('span._2lQvpT7g');
+                    break;
+                }
+            }
+
+            if (userCountElement) {
+                const userCountText = userCountElement.textContent.trim();
+                console.log('Найден текст количества скачиваний:', userCountText);
+
+                // Извлекаем первую цифру из текста "9 тыс +"
+                const numberMatch = userCountText.match(/(\d+)/);
+                if (numberMatch) {
+                    const baseNumber = parseInt(numberMatch[1]);
+                    console.log('Извлечена цифра:', baseNumber);
+
+                    // Преобразуем "9 тыс +" в "9000+"
+                    let finalNumber;
+                    if (userCountText.includes('тыс')) {
+                        finalNumber = baseNumber * 1000;
+                    } else {
+                        finalNumber = baseNumber;
+                    }
+
+                    console.log('Финальное число:', finalNumber);
+
+                    // Обновляем элементы на странице
+                    updateDownloadNumbers(finalNumber);
+                    return finalNumber;
+                }
+            } else {
+                console.log('Элемент с количеством скачиваний не найден');
+            }
+
+            // Если не удалось получить данные, возвращаем значение по умолчанию
+            return null;
+        } catch (error) {
+            console.error('Ошибка при получении данных из RuStore:', error);
+            return null;
+        }
+    }
+
+    // Функция для обновления чисел загрузок на странице
+    function updateDownloadNumbers(userCount) {
+        if (userCount) {
+            // Форматируем число с добавлением знака +
+            const formattedNumber = userCount.toLocaleString() + '+';
+
+            // Обновляем основной элемент на главной странице (пользователи Море карт)
+            const mainDownloadNumber = document.querySelector('.download-container.right .download-number');
+            if (mainDownloadNumber) {
+                mainDownloadNumber.textContent = formattedNumber;
+            }
+
+            // Обновляем элемент в карточке проекта SeaCard
+            const projectUserCount = document.querySelector('.project-card:nth-child(2) .user-count-badge .count-number');
+            if (projectUserCount) {
+                projectUserCount.textContent = formattedNumber;
+            }
+        }
+    }
+
+    // Вызываем функцию получения данных при загрузке страницы
+    fetchRuStoreUserCount();
 });
