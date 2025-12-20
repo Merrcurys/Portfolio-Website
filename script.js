@@ -64,64 +64,64 @@ document.addEventListener('DOMContentLoaded', function () {
         requestAnimationFrame(updateNumber);
     }
 
-    // Function to update education timeline based on data attributes
+    // Функция обновления временной шкалы обучения на основе атрибутов данных
     function updateEducationTimeline() {
         const educationBars = document.querySelectorAll('.education-bar');
-        const timelineStart = 2021; // Start year of the timeline
+        const timelineStart = 2021; // Начальный год временной шкалы
         const timelineEnd = 2026;   // End year of the timeline
-        const timelineDuration = timelineEnd - timelineStart; // Total timeline duration in years
+        const timelineDuration = timelineEnd - timelineStart; // Конечный год временной шкалы
 
         educationBars.forEach(bar => {
-            // Parse start date (supporting both "yyyy" and "mm.yyyy" formats)
+            // Дата начала синтаксического анализа (поддерживает форматы "гггг" и "мм.гггг")
             let startYear, startMonth = 0;
             const startData = bar.dataset.start;
             if (startData.includes('.')) {
-                // Format: mm.yyyy
+                // Формат: мм.гггг
                 const [month, year] = startData.split('.');
                 startYear = parseInt(year);
-                startMonth = parseInt(month) - 1; // Convert to 0-based month
+                startMonth = parseInt(month) - 1; // Переводим в 0-месяцы
             } else {
-                // Format: yyyy
+                // Формат: гггг
                 startYear = parseInt(startData);
             }
 
-            // Parse end date (supporting both "yyyy"/"mm.yyyy" formats and "current")
-            let endYear, endMonth = 11; // Default to December (11 in 0-based)
+            // Дата окончания анализа (поддерживает как форматы "гггг"/"мм.гггг", так и "текущий")
+            let endYear, endMonth = 11; // Значение по умолчанию - декабрь (11 от 0)
             if (bar.dataset.end === 'current') {
                 const now = new Date();
                 endYear = now.getFullYear();
-                endMonth = now.getMonth(); // 0-based month
+                endMonth = now.getMonth(); // 0-based месяц
             } else {
                 if (bar.dataset.end.includes('.')) {
-                    // Format: mm.yyyy
+                    // Формат: мм.гггг
                     const [month, year] = bar.dataset.end.split('.');
                     endYear = parseInt(year);
-                    endMonth = parseInt(month) - 1; // Convert to 0-based month
+                    endMonth = parseInt(month) - 1; // Конвертирование в 0-based месяц
                 } else {
-                    // Format: yyyy
+                    // Формат: гггг
                     endYear = parseInt(bar.dataset.end);
                 }
             }
 
-            // Convert to decimal years for precise calculation
-            // Position the start at the beginning of the month and end at the end of the month
+            // Преобразование в десятичные годы для точного расчета
+            // Расположите начало в начале месяца, а окончание - в конце месяца
             const startDecimal = startYear + (startMonth / 12);
-            const endDecimal = endYear + ((endMonth + 1) / 12); // End at the end of the specified month
+            const endDecimal = endYear + ((endMonth + 1) / 12); // Заканчивается в конце указанного месяца
             const timelineStartDecimal = timelineStart;
             const timelineEndDecimal = timelineEnd;
             const timelineDurationDecimal = timelineEndDecimal - timelineStartDecimal;
 
-            // Calculate position and width based on timeline duration
+            // Рассчитайте положение и ширину на основе продолжительности временной шкалы
             const startPercent = ((startDecimal - timelineStartDecimal) / timelineDurationDecimal) * 100;
             const widthPercent = ((endDecimal - startDecimal) / timelineDurationDecimal) * 100;
 
-            // Apply calculated styles
+            // Применение вычисленных стилей
             bar.style.marginLeft = `${startPercent}%`;
             bar.style.width = `${widthPercent}%`;
         });
     }
 
-    // Run the update function when the page loads
+    // Запустите функцию обновления при загрузке страницы
     updateEducationTimeline();
 
     // Запускаем обновление возраста
@@ -326,7 +326,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Отображение кнопки
     window.addEventListener('scroll', function () {
         if (backToTopButton) {
-            if (window.scrollY > 600) { // Show button after scrolling 600px
+            if (window.scrollY > 600) { // Кнопка отображения после прокрутки на 600 пикселей
                 backToTopButton.classList.add('show');
             } else {
                 backToTopButton.classList.remove('show');
