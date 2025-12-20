@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Анимация смены ролей
     const roleText = document.getElementById('roleText');
-    const roles = ['Python Developer', 'SQL Developer', 'Android Developer', 'Data Analyst'];
+    const roles = ['Python Developer', 'SQL Developer', 'Android Developer', 'Monitoring Engineer'];
     let currentRoleIndex = 0;
     let isTransitioning = false;
 
