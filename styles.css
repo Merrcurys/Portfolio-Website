@@ -269,115 +269,116 @@ body {
     overflow: hidden;
 }
 
-/* Плавающие контейнеры */
-.download-containers {
+/* Боковые пузырьки в hero */
+.hero-bubbles {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+    bottom: -40px;
+    width: 150px;
     height: 100%;
     pointer-events: none;
     z-index: 0;
 }
 
-.download-container {
+.hero-bubbles-left {
+    left: 1.2rem;
+}
+
+.hero-bubbles-right {
+    right: 1.2rem;
+}
+
+.bubble {
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.06);
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border: 1px solid rgba(0, 245, 255, 0.2);
-    border-radius: 20px;
-    padding: 2rem 1.5rem;
-    width: 180px;
-    text-align: center;
-    box-shadow: 0 8px 32px rgba(0, 245, 255, 0.1);
-    transition: all 0.3s ease;
+    bottom: -60px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.36), rgba(44, 152, 214, 0.22) 45%, rgba(44, 152, 214, 0.08) 75%, transparent 100%);
+    border: 1px solid rgba(98, 180, 230, 0.35);
+    box-shadow: 0 0 20px rgba(44, 152, 214, 0.14), inset 0 0 12px rgba(255, 255, 255, 0.22);
+    opacity: 0;
+    animation: heroBubbleRise 10s linear infinite;
 }
 
-.download-container.left {
-    left: 2rem;
-    animation: swayLeft 6s ease-in-out infinite;
+.hero-bubbles .b1 {
+    width: 20px;
+    height: 20px;
+    left: 8px;
+    animation-duration: 10s;
+    animation-delay: 0s;
 }
 
-.download-container.right {
-    right: 2rem;
-    animation: swayRight 6s ease-in-out infinite;
+.hero-bubbles .b2 {
+    width: 28px;
+    height: 28px;
+    left: 44px;
+    animation-duration: 12s;
+    animation-delay: 2s;
 }
 
-.download-container:hover {
-    transform: translateY(-50%) scale(1.05);
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(0, 245, 255, 0.4);
-    box-shadow: 0 12px 40px rgba(0, 245, 255, 0.2);
+.hero-bubbles .b3 {
+    width: 16px;
+    height: 16px;
+    left: 80px;
+    animation-duration: 9s;
+    animation-delay: 4s;
 }
 
-.download-icon {
-    font-size: 2.5rem;
-    color: var(--primary);
-    margin-bottom: 1rem;
-    filter: drop-shadow(0 0 10px rgba(0, 245, 255, 0.5));
+.hero-bubbles .b4 {
+    width: 24px;
+    height: 24px;
+    left: 20px;
+    animation-duration: 11s;
+    animation-delay: 6s;
 }
 
-.download-number {
-    font-size: 2rem;
-    font-weight: 800;
-    background: var(--gradient-accent);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 0.5rem;
-    line-height: 1;
+.hero-bubbles .b5 {
+    width: 14px;
+    height: 14px;
+    left: 108px;
+    animation-duration: 8.5s;
+    animation-delay: 1s;
 }
 
-.download-label {
-    font-size: 0.8rem;
-    color: var(--text-secondary);
-    font-weight: 500;
-    line-height: 1.3;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+.hero-bubbles .b6 {
+    width: 30px;
+    height: 30px;
+    left: 60px;
+    animation-duration: 13s;
+    animation-delay: 3.5s;
 }
 
-/* Покачивающаяся анимация */
-@keyframes swayLeft {
+.hero-bubbles .b7 {
+    width: 18px;
+    height: 18px;
+    left: 2px;
+    animation-duration: 9.5s;
+    animation-delay: 5s;
+}
 
-    0%,
+.hero-bubbles .b8 {
+    width: 22px;
+    height: 22px;
+    left: 126px;
+    animation-duration: 10.5s;
+    animation-delay: 7s;
+}
+
+@keyframes heroBubbleRise {
+    0% {
+        transform: translateY(0) translateX(0) scale(0.88);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 0.75;
+    }
+
+    60% {
+        opacity: 0.45;
+    }
+
     100% {
-        transform: translateY(-50%) translateX(0) rotate(0deg);
-    }
-
-    25% {
-        transform: translateY(-50%) translateX(-8px) rotate(-2deg);
-    }
-
-    50% {
-        transform: translateY(-50%) translateX(0) rotate(0deg);
-    }
-
-    75% {
-        transform: translateY(-50%) translateX(8px) rotate(2deg);
-    }
-}
-
-@keyframes swayRight {
-
-    0%,
-    100% {
-        transform: translateY(-50%) translateX(0) rotate(0deg);
-    }
-
-    25% {
-        transform: translateY(-50%) translateX(8px) rotate(2deg);
-    }
-
-    50% {
-        transform: translateY(-50%) translateX(0) rotate(0deg);
-    }
-
-    75% {
-        transform: translateY(-50%) translateX(-8px) rotate(-2deg);
+        transform: translateY(-95vh) translateX(14px) scale(1.08);
+        opacity: 0;
     }
 }
 
@@ -542,6 +543,11 @@ body {
 .btn-primary {
     background: var(--gradient-accent);
     color: white;
+}
+
+.hero-buttons .btn-primary {
+    background: linear-gradient(135deg, #2c98d6 0%, #3197d6 100%);
+    border: 1px solid rgba(34, 158, 217, 0.35);
 }
 
 .btn-primary:hover {
@@ -829,113 +835,102 @@ body {
 /* Контейнер для диаграмм */
 .chart-container {
     position: relative;
-    height: 300px;
+    height: 340px;
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    gap: 1rem;
+    justify-content: flex-start;
 }
 
-.year-axis {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 1rem;
-    padding: 0 1rem;
-    position: relative;
+.timeline-years {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.2rem;
+    padding-left: 0;
 }
 
-.year-mark {
+.timeline-years span {
     font-size: 0.9rem;
     color: var(--text-secondary);
     font-weight: 500;
-    position: relative;
+    text-align: center;
 }
 
-.year-mark::before {
-    content: "";
-    position: absolute;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 1px;
-    height: 260px;
-    background: rgba(255, 255, 255, 0.1);
-    z-index: -1;
-}
-
-.education-bars {
+.parallel-timeline {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
-    height: 240px;
+    gap: 1.2rem;
+    height: 100%;
     position: relative;
 }
 
-.education-bar {
-    height: 60px;
-    border-radius: 12px;
+.timeline-track {
+    display: block;
+    align-items: center;
+}
+
+.track-line {
     position: relative;
-    overflow: hidden;
+    height: 76px;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background:
+        repeating-linear-gradient(to right,
+            transparent 0%,
+            transparent calc(14.2857% - 1px),
+            rgba(255, 255, 255, 0.12) calc(14.2857% - 1px),
+            rgba(255, 255, 255, 0.12) 14.2857%);
+}
+
+.track-bar {
+    position: absolute;
+    top: 10px;
+    height: 56px;
+    border-radius: 10px;
     display: flex;
     align-items: center;
-    animation: barGrow 1s ease-out forwards;
-    transform-origin: left;
-    opacity: 0;
+    padding: 0 0.7rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #fff;
+    white-space: nowrap;
+    border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
-.education-bar.yandex-bar {
-    background: linear-gradient(90deg, rgba(255, 107, 107, 0.8), rgba(255, 142, 142, 0.6));
-    animation-delay: 0.2s;
+.track-bar.yandex-bar {
+    background: linear-gradient(90deg, rgba(255, 107, 107, 0.85), rgba(255, 142, 142, 0.75));
+    justify-content: center;
 }
 
-.education-bar.college-bar {
-    background: var(--gradient-accent);
-    animation-delay: 0.4s;
-    opacity: 0.9;
+.track-bar.yandex-bar span {
+    font-size: 0.74rem;
+    text-align: center;
+    line-height: 1.15;
 }
 
-.education-bar.university-bar {
-    background: linear-gradient(90deg, rgba(162, 155, 254, 0.8), rgba(108, 92, 231, 0.6));
-    animation-delay: 0.6s;
+.track-bar.college-bar {
+    background: linear-gradient(90deg, rgba(44, 152, 214, 0.9), rgba(49, 151, 214, 0.78));
 }
 
-@keyframes barGrow {
-    from {
-        transform: scaleX(0);
-        opacity: 0;
-    }
-
-    to {
-        transform: scaleX(1);
-        opacity: 1;
-    }
+.track-bar.university-bar {
+    background: linear-gradient(90deg, rgba(162, 155, 254, 0.85), rgba(108, 92, 231, 0.74));
 }
 
-.bar-content {
-    display: flex;
+.overlap-note {
+    margin-top: 0.4rem;
+    margin-left: 0;
+    display: inline-flex;
     align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    padding: 0 1rem;
-    z-index: 1;
-    position: relative;
-}
-
-.bar-label {
+    gap: 0.45rem;
+    align-self: flex-start;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 999px;
+    padding: 0.4rem 0.8rem;
+    color: var(--text-primary);
+    font-size: 0.82rem;
     font-weight: 600;
-    color: white;
-    font-size: 0.9rem;
-}
-
-.bar-status {
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.95);
-    background: rgba(255, 255, 255, 0.2);
-    padding: 0.3rem 0.8rem;
-    border-radius: 12px;
-    backdrop-filter: blur(10px);
-    font-weight: 600;
-    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 /* Детали образования */
@@ -1079,30 +1074,35 @@ body {
     }
 
     .chart-container {
-        height: 250px;
+        height: auto;
+        gap: 0.9rem;
     }
 
-    .education-bars {
-        height: 190px;
+    .timeline-years {
+        padding-left: 0;
+        font-size: 0.78rem;
     }
 
-    .education-bar {
-        height: 50px;
+    .timeline-track {
+        display: block;
     }
 
-    .bar-content {
-        flex-direction: row;
-        gap: 0.3rem;
-        justify-content: space-between;
+    .track-line {
+        height: 60px;
     }
 
-    .bar-label {
-        font-size: 0.8rem;
+    .track-bar {
+        top: 8px;
+        height: 44px;
+        font-size: 0.72rem;
+        padding: 0 0.45rem;
     }
 
-    .bar-status {
-        font-size: 0.8rem;
-        padding: 0.25rem 0.7rem;
+    .overlap-note {
+        margin-left: 0;
+        font-size: 0.75rem;
+        width: 100%;
+        justify-content: center;
     }
 }
 
@@ -1114,7 +1114,7 @@ body {
 }
 
 .experience-content {
-    max-width: 1000px;
+    max-width: 1500px;
     margin: 0 auto;
     text-align: center;
 }
@@ -1122,13 +1122,17 @@ body {
 .experience-timeline {
     margin-top: 4rem;
     position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
 }
 
 .experience-item {
-    margin-bottom: 3rem;
+    margin-bottom: 0;
     opacity: 0;
     animation: fadeInUp 0.8s ease-out forwards;
     animation-delay: 0.3s;
+    display: flex;
 }
 
 .experience-card {
@@ -1141,10 +1145,12 @@ body {
     transition: all var(--transition);
     position: relative;
     overflow: hidden;
+    height: 100%;
+    width: 100%;
 }
 
 .experience-card:hover {
-    transform: translateY(-8px);
+    transform: none;
     border-color: rgba(0, 245, 255, 0.3);
     box-shadow: 0 20px 50px rgba(0, 245, 255, 0.15);
 }
@@ -1154,6 +1160,14 @@ body {
     align-items: center;
     gap: 1.5rem;
     margin-bottom: 2rem;
+}
+
+.company-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 0;
+    margin: 0;
 }
 
 .company-icon {
@@ -1217,7 +1231,7 @@ body {
     color: var(--text-primary);
     font-size: 1.4rem;
     font-weight: 700;
-    margin-bottom: 0.5rem;
+    margin: 0 0 0.5rem 0;
     line-height: 1.2;
 }
 
@@ -1226,6 +1240,7 @@ body {
     font-size: 1.1rem;
     font-weight: 600;
     margin: 0;
+    padding-left: 0;
 }
 
 .experience-details {
@@ -1305,36 +1320,6 @@ body {
     font-size: 1rem;
 }
 
-.experience-achievements h5 {
-    color: var(--text-primary);
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-}
-
-.experience-achievements ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.experience-achievements li {
-    color: var(--text-secondary);
-    line-height: 1.6;
-    margin-bottom: 0.8rem;
-    position: relative;
-    padding-left: 1.5rem;
-}
-
-.experience-achievements li::before {
-    content: '▸';
-    color: var(--primary);
-    font-weight: bold;
-    position: absolute;
-    left: 0;
-    top: 0;
-}
-
 /* Для телефона секция "Опыт работы" */
 @media (max-width: 768px) {
     .company-header {
@@ -1350,9 +1335,6 @@ body {
         justify-content: center;
     }
 
-    .experience-achievements {
-        text-align: left;
-    }
 }
 
 /* Проекты */
@@ -1726,7 +1708,7 @@ body {
 
 /* Технологии */
 .technologies {
-    padding: 4rem 2rem;
+    padding: 3rem 2rem;
     position: relative;
     overflow: hidden;
 }
@@ -1738,8 +1720,13 @@ body {
 }
 
 .tech-category {
-    margin-bottom: 2.5rem;
+    margin-bottom: 1.8rem;
     animation: fadeInUp 0.8s ease-out both;
+}
+
+.technologies .section-description {
+    margin-bottom: 2.4rem;
+    font-size: 1.05rem;
 }
 
 .tech-category:nth-child(1) {
@@ -1759,12 +1746,12 @@ body {
 }
 
 .category-title {
-    font-size: 1.3rem;
+    font-size: 1.15rem;
     font-weight: 600;
     color: var(--text-primary);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     text-align: left;
-    padding: 0.6rem 1rem;
+    padding: 0.45rem 0.8rem;
     border-left: 3px solid var(--primary);
     background: rgba(0, 245, 255, 0.05);
     border-radius: 8px;
@@ -1793,14 +1780,14 @@ body {
 .tech-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.2rem;
+    gap: 0.85rem;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .tech-card {
     position: relative;
-    min-height: 160px;
+    min-height: 132px;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
     backdrop-filter: blur(25px) saturate(180%);
     -webkit-backdrop-filter: blur(25px) saturate(180%);
@@ -1808,38 +1795,52 @@ body {
     border-radius: 20px;
     display: flex;
     flex-direction: column;
-    padding: 1.5rem;
+    padding: 1rem;
     cursor: default;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transition: transform .22s ease, border-color .2s ease, background .2s ease, box-shadow .2s ease;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.08);
     overflow: hidden;
 }
 
 .tech-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-3px);
     border: 1px solid rgba(255, 255, 255, 0.15);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.22);
 }
 
 .tech-icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 1rem;
+    margin-bottom: 0.65rem;
 }
 
 .tech-icon i {
-    font-size: 2rem;
+    font-size: 1.75rem;
+    color: var(--primary);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: drop-shadow(0 2px 8px rgba(0, 245, 255, 0.3));
+}
+
+.tech-zabbix-letter {
+    font-style: normal;
+    font-size: 1.75rem;
+    font-weight: 800;
+    line-height: 1;
     color: var(--primary);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     filter: drop-shadow(0 2px 8px rgba(0, 245, 255, 0.3));
 }
 
 .tech-logo {
-    width: 2rem;
-    height: 2rem;
+    width: 1.75rem;
+    height: 1.75rem;
     object-fit: contain;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: drop-shadow(0 2px 8px rgba(0, 245, 255, 0.3)) brightness(0) saturate(100%) invert(50%) sepia(96%) saturate(6544%) hue-rotate(174deg) brightness(160%) contrast(101%);
+}
+
+.tech-logo.real-logo {
     filter: drop-shadow(0 2px 8px rgba(0, 245, 255, 0.3)) brightness(0) saturate(100%) invert(50%) sepia(96%) saturate(6544%) hue-rotate(174deg) brightness(160%) contrast(101%);
 }
 
@@ -1847,17 +1848,17 @@ body {
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 0.8rem;
+    gap: 0.45rem;
     text-align: center;
 }
 
 .tech-name {
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 700;
     color: var(--text-primary);
     transition: all 0.4s ease;
     letter-spacing: 0.5px;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.2rem;
 }
 
 .tech-skills {
@@ -1872,9 +1873,9 @@ body {
     background: rgba(0, 245, 255, 0.1);
     border: 1px solid rgba(0, 245, 255, 0.3);
     color: var(--primary);
-    padding: 0.3rem 0.8rem;
+    padding: 0.22rem 0.6rem;
     border-radius: 20px;
-    font-size: 0.75rem;
+    font-size: 0.68rem;
     font-weight: 600;
     transition: all 0.3s ease;
     white-space: nowrap;
@@ -1882,9 +1883,9 @@ body {
 }
 
 .tech-description {
-    font-size: 0.9rem;
+    font-size: 0.82rem;
     color: var(--text-secondary);
-    line-height: 1.5;
+    line-height: 1.35;
     text-align: center;
     opacity: 0.9;
     transition: all 0.3s ease;
@@ -1892,14 +1893,14 @@ body {
 
 .certificate-badge {
     position: absolute;
-    top: 1rem;
-    right: 1rem;
+    top: 0.65rem;
+    right: 0.65rem;
     background: rgba(0, 245, 255, 0.1);
     border: 1px solid rgba(0, 245, 255, 0.3);
     color: var(--primary);
-    padding: 0.3rem 0.8rem;
+    padding: 0.2rem 0.55rem;
     border-radius: 12px;
-    font-size: 0.7rem;
+    font-size: 0.62rem;
     font-weight: 600;
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(0, 245, 255, 0.2);
@@ -1937,6 +1938,15 @@ body {
 
 /* Адаптив */
 @media (max-width: 1024px) {
+    .experience-timeline {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .experience-item {
+        margin-bottom: 0;
+    }
+
     .hero-content {
         gap: 2rem;
     }
@@ -2295,16 +2305,6 @@ body {
 
     .experience-description p {
         font-size: 0.9rem;
-    }
-
-    .experience-achievements h5 {
-        font-size: 1rem;
-    }
-
-    .experience-achievements li {
-        font-size: 0.9rem;
-        margin-bottom: 0.6rem;
-        padding-left: 1.2rem;
     }
 
     .project-card {
