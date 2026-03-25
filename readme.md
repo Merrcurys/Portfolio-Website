@@ -1,7 +1,7 @@
 # Сайт портфолио
 
 Мой личный сайт-портфолио, демонстрирующий мои навыки, образование, опыт работы и мои проекты.
-![image](https://raw.githubusercontent.com/Merrcurys/Portfolio-Website/refs/heads/master/img/telegram-view.jpg)
+![image](https://github.com/user-attachments/assets/d21748f6-ec39-4af4-94f1-b25961dd127e)
 
 ## Особенности
 
