@@ -256,12 +256,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const certificates = {
         'python': {
-            title: 'Сертификат Python',
+            title: 'Сертификат Python от Яндекс Лицея',
             image: 'img/certificates/python-certificat.jpg'
         },
         'javascript': {
-            title: 'Сертификат JavaScript',
+            title: 'Сертификат JavaScript от Result School',
             image: 'img/certificates/js-certificate.png'
+        },
+        'kotlin': {
+            title: 'Сертификат Kotlin от Т-Образование',
+            image: 'img/certificates/kotlin-certificate.png'
         }
     };
 
