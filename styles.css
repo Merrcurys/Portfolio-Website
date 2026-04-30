@@ -1649,12 +1649,12 @@ body {
     bottom: 0;
     top: auto;
     width: 100%;
-    height: 30px;
+    height: 24px;
     background: rgba(160, 160, 160, 0.03);
     border-left: none;
     border-top: 1px solid rgba(160, 160, 160, 0.08);
     border-radius: 0 0 20px 20px;
-    padding: 0.5rem 0.9rem;
+    padding: 0.25rem 0.75rem;
     text-align: center;
     transition: all var(--transition);
     backdrop-filter: blur(10px);
@@ -1743,9 +1743,22 @@ body {
         justify-content: center;
     }
 
-    .project-btn {
-        flex: 1;
-        min-width: auto;
+    .project-actions .project-btn {
+        flex: 0 1 auto;
+        min-width: 120px;
+    }
+
+    .project-card.my-mpt-card .project-actions {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .project-card.my-mpt-card .project-actions .project-btn {
+        flex: 0 1 auto;
+        min-width: 110px;
+        min-height: 40px;
+        padding: 0.55rem 1rem;
+        white-space: nowrap;
     }
 }
 
@@ -1760,11 +1773,15 @@ body {
     }
 
     .project-actions {
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     .project-btn {
-        width: 100%;
+        width: auto;
+        min-width: 110px;
+        flex: 0 1 auto;
     }
 
     .user-count-badge {
@@ -1773,8 +1790,8 @@ body {
         bottom: 0;
         top: auto;
         width: 100%;
-        height: 44px;
-        padding: 0.3rem 0.6rem;
+        height: 34px;
+        padding: 0.2rem 0.55rem;
         border-left: none;
         border-top: 1px solid rgba(160, 160, 160, 0.08);
         border-radius: 0 0 20px 20px;
@@ -1806,6 +1823,18 @@ body {
 @media (max-width: 480px) {
     .project-card.my-mpt-card .project-actions {
         flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .project-card.my-mpt-card .project-actions .project-btn,
+    .project-card.my-mpt-card .project-actions .project-btn span {
+        white-space: normal;
+    }
+
+    .project-card.my-mpt-card .project-actions .project-btn {
+        min-width: 96px;
+        min-height: 38px;
+        padding: 0.55rem 0.9rem;
     }
 }
 
@@ -2412,6 +2441,7 @@ body {
 
     .project-card {
         padding: 1.5rem;
+        padding-bottom: calc(0.5rem + 44px);
     }
 
     .project-header {
@@ -2461,11 +2491,20 @@ body {
         font-size: 0.8rem;
     }
 
+    .project-card.my-mpt-card .project-actions {
+        flex-wrap: wrap;
+    }
+
+    .project-card.my-mpt-card .project-actions .project-btn,
+    .project-card.my-mpt-card .project-actions .project-btn span {
+        white-space: normal;
+    }
+
     .user-count-badge {
-        padding: 0.3rem 0.6rem;
+        padding: 0.2rem 0.55rem;
         min-width: 60px;
         width: 100%;
-        height: 44px;
+        height: 34px;
         left: 0;
         right: 0;
         bottom: 0;
