@@ -269,7 +269,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     };
 
-    const clickableTechCards = document.querySelectorAll('.tech-card-clickable');
+    const clickableTechCards = document.querySelectorAll('.tech-pill[data-certificate]');
     clickableTechCards.forEach(card => {
         card.addEventListener('click', function () {
             const certificateType = this.dataset.certificate;
