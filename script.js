@@ -266,6 +266,10 @@ document.addEventListener('DOMContentLoaded', function () {
         'kotlin': {
             title: 'Сертификат Kotlin от Т-Образование',
             image: 'img/certificates/kotlin-certificate.png'
+        },
+        'git': {
+            title: 'Пройденный курс по Git от Яндекс практикума',
+            image: 'img/certificates/git-certificate.png'
         }
     };
 
