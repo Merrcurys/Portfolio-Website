@@ -1486,7 +1486,7 @@ body {
     color: rgba(180, 180, 180, 0.8);
 }
 
-.tech-tag.pyrogram {
+.tech-tag.kurigram {
     background: rgba(160, 160, 160, 0.05);
     border-color: rgba(160, 160, 160, 0.15);
     color: rgba(180, 180, 180, 0.8);
@@ -1554,18 +1554,20 @@ body {
     margin-bottom: 0;
 }
 
-/* "Мой МПТ": GitHub сверху, AppStore + RuStore снизу вдвоем */
+/* "Мой МПТ": AppStore + Google Play + RuStore в один ряд, GitHub снизу во всю ширину */
 .project-card.my-mpt-card .project-actions {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.65rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.5rem;
 }
 
 .project-card.my-mpt-card .project-actions .project-btn {
     min-width: 0;
     height: 40px;
     min-height: 40px;
-    padding: 0 1.1rem;
+    padding: 0 0.4rem;
+    font-size: 0.82rem;
+    justify-content: center;
     box-sizing: border-box;
 }
 
@@ -1933,6 +1935,24 @@ body {
         height: 36px;
         min-height: 36px;
         font-size: 0.72rem;
+    }
+}
+
+/* На очень узких экранах "Мой МПТ" переносим кнопки, чтобы текст не обрезался */
+@media (max-width: 420px) {
+    .project-card.my-mpt-card .project-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.45rem;
+    }
+
+    .project-card.my-mpt-card .project-actions .project-btn {
+        flex: 1 1 auto;
+        padding: 0 0.6rem;
+    }
+
+    .project-card.my-mpt-card .project-actions .project-btn.github {
+        flex: 1 1 100%;
     }
 }
 
